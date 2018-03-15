@@ -9,7 +9,6 @@ namespace BankSystem.Models
         public BankAccount()
         {
             this.Cards = new HashSet<Card>();
-            this.Transactions = new HashSet<Transaction>();
         }
 
         public int Id { get; set; }
@@ -26,7 +25,5 @@ namespace BankSystem.Models
         public Client Owner { get; set; }
 
         public virtual ICollection<Card> Cards { get; set; }
-
-        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

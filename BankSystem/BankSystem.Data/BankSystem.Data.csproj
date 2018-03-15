@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankSystemContext.cs" />
+    <Compile Include="Migrations\201803150928491_Initial.cs" />
+    <Compile Include="Migrations\201803150928491_Initial.Designer.cs">
+      <DependentUpon>201803150928491_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,6 +64,11 @@
       <Project>{64d73f2b-4978-4657-8a8d-9fbfd03b420e}</Project>
       <Name>BankSystem.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803150928491_Initial.resx">
+      <DependentUpon>201803150928491_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

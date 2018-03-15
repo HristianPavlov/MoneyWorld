@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using BankSystem.Models;
 
 namespace BankSystem.Data
@@ -19,5 +20,12 @@ namespace BankSystem.Data
         public DbSet<Transaction> Transactions { get; set; }
 
         public DbSet<ExchangeRate> ExchangeRates { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        }
     }
 }
