@@ -18,7 +18,7 @@ namespace BankSystem.Models
         public string Pin { get; set; }
 
         [Required(ErrorMessage = "Card should have expiration date.")]
-        public DateTime ExpirationDate { get; set; }
+        public DateTime? ExpirationDate { get; set; }
 
         [Required(ErrorMessage = "Card should have secret number.")]
         [MinLength(3, ErrorMessage = "Card secret number should be 3 symbols long.")]
@@ -27,5 +27,7 @@ namespace BankSystem.Models
 
         [Required(ErrorMessage = "Card should have associated bank account.")]
         public virtual BankAccount Account { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

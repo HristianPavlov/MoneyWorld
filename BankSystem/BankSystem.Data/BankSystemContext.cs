@@ -26,6 +26,17 @@ namespace BankSystem.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            modelBuilder.Entity<BankAccount>()
+                .HasMany(b => b.SendTransactions)
+                .WithRequired(t => t.Sender)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<BankAccount>()
+                .HasMany(b => b.ReceivedTransactions)
+                .WithRequired(t => t.Receiver)
+                .WillCascadeOnDelete(false);
         }
     }
 }

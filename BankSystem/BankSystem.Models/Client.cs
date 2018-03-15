@@ -26,6 +26,8 @@ namespace BankSystem.Models
 
         public string Password { get; set; }
 
-        public ICollection<BankAccount> BankAccounts { get; set; }
+        public bool IsDeleted { get; set; }
+
+        public virtual ICollection<BankAccount> BankAccounts { get; set; }
     }
 }
