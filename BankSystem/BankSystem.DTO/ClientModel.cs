@@ -13,11 +13,16 @@ namespace BankSystem.DTO
     {
         public string FullName { get; set; }
 
-        public int Id { get; set; }
-             
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
         public string UserName { get; set; }
-                     
-        public  ICollection<BankAccount> BankAccounts { get; set; }
+
+        public string Password { get; set; }
+
+
+        public ICollection<BankAccount> BankAccounts { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
