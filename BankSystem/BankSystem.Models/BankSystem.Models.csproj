@@ -54,6 +54,7 @@
     <Compile Include="BankAccount.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="ClientContact.cs" />
     <Compile Include="Enums\BankAccountType.cs" />
     <Compile Include="Enums\Currency.cs" />
     <Compile Include="ExchangeRate.cs" />

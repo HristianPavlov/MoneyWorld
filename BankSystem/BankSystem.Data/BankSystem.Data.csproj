@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201803151507261_ChangeRequiredTableProperties.Designer.cs">
       <DependentUpon>201803151507261_ChangeRequiredTableProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803181451018_contacts added.cs" />
+    <Compile Include="Migrations\201803181451018_contacts added.Designer.cs">
+      <DependentUpon>201803181451018_contacts added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803151507261_ChangeRequiredTableProperties.resx">
       <DependentUpon>201803151507261_ChangeRequiredTableProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803181451018_contacts added.resx">
+      <DependentUpon>201803181451018_contacts added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

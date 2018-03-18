@@ -45,6 +45,11 @@ namespace BankSystem.Data
                 .HasMany(b => b.ReceivedTransactions)
                 .WithRequired(t => t.Receiver)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Client>()
+                .HasMany(b => b.Contacts)
+                .WithRequired(t => t.Owner_Id)
+                .WillCascadeOnDelete(false);
         }
 
         //RegisterConfigurations

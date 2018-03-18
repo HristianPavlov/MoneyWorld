@@ -29,5 +29,7 @@ namespace BankSystem.Models
         public bool IsDeleted { get; set; }
 
         public virtual ICollection<BankAccount> BankAccounts { get; set; }
+
+        public virtual ICollection<ClientContact> Contacts { get; set; }
     }
 }
