@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201803181451018_contacts added.Designer.cs">
       <DependentUpon>201803181451018_contacts added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803190941395_ClientContactColumnNamesChanged.cs" />
+    <Compile Include="Migrations\201803190941395_ClientContactColumnNamesChanged.Designer.cs">
+      <DependentUpon>201803190941395_ClientContactColumnNamesChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803181451018_contacts added.resx">
       <DependentUpon>201803181451018_contacts added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803190941395_ClientContactColumnNamesChanged.resx">
+      <DependentUpon>201803190941395_ClientContactColumnNamesChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

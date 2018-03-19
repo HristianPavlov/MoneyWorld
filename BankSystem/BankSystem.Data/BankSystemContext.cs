@@ -1,8 +1,8 @@
-﻿using System.Data.Common;
+﻿using BankSystem.Data.Contracts;
+using BankSystem.Models;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using BankSystem.Data.Contracts;
-using BankSystem.Models;
 
 namespace BankSystem.Data
 {
@@ -27,7 +27,7 @@ namespace BankSystem.Data
 
         public IDbSet<ExchangeRate> ExchangeRates { get; set; }
 
-        
+
         // look at the original in SocialNetwork
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -48,7 +48,7 @@ namespace BankSystem.Data
 
             modelBuilder.Entity<Client>()
                 .HasMany(b => b.Contacts)
-                .WithRequired(t => t.Owner_Id)
+                .WithRequired(t => t.Owner)
                 .WillCascadeOnDelete(false);
         }
 
