@@ -59,7 +59,9 @@
   <ItemGroup>
     <Compile Include="ClientServices.cs" />
     <Compile Include="Contracts\IClientServices.cs" />
+    <Compile Include="Contracts\ITransactionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

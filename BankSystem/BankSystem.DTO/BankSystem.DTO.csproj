@@ -51,8 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankAccountModel.cs" />
     <Compile Include="ClientModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionAddModel.cs" />
+    <Compile Include="TransactionInfoModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

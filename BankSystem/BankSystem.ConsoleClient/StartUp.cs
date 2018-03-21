@@ -1,14 +1,13 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using Autofac;
+﻿using Autofac;
+using AutoMapper;
 using BankSystem.Common;
-using BankSystem.ConsoleClient.Controllers;
-using BankSystem.Data;
 using BankSystem.DTO;
 using BankSystem.Models;
+using BankSystem.Models.Enums;
+using BankSystem.Services;
+using System;
+using System.Linq;
+using System.Reflection;
 
 namespace BankSystem.ConsoleClient
 {
@@ -18,26 +17,51 @@ namespace BankSystem.ConsoleClient
         {
             Init();
 
+            var transactionModel = new TransactionAddModel()
+            {
+                SenderId = 2,
+                ReceiverId = 3,
+                Amount = 10m,
+                Currency = Currency.BGN,
+                Date = DateTime.Now
+            };
+
+            var transactionToAdd = Mapper.Map<Transaction>(transactionModel);
+
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
             var container = builder.Build();
 
-            var controller = container.Resolve<ClientController>();
+            var transactionService = new TransactionService();
 
-            //controller.CreatePost("Added new post", DateTime.Now);
+            //transactionService.AddTransaction(transactionModel);
 
-
-            //var read = Console.ReadLine().Split(' ').ToList();
-
-            //controller.AddClient(read[0], read[1], read[2], read[3]);
-
-
-            var clients = controller.GetAll();
-            //var newww = new ClientModel();
-            foreach (var item in clients)
+            var client = new ClientModel()
             {
-                Console.WriteLine(item.UserName);
-            }
+                UserName = "aaaaaaaa"
+            };
+
+            var result = transactionService.GetClientTransactionsFromDateToDate(client, new DateTime(2018, 03, 20), new DateTime(2018, 03, 22)).ToList();
+
+            Console.WriteLine();
+
+
+
+            //  transactionService.AddTransaction(transactionModel);
+            ////controller.CreatePost("Added new post", DateTime.Now);
+
+
+            ////var read = Console.ReadLine().Split(' ').ToList();
+
+            ////controller.AddClient(read[0], read[1], read[2], read[3]);
+
+
+            //var clients = controller.GetAll();
+            ////var newww = new ClientModel();
+            //foreach (var item in clients)
+            //{
+            //    Console.WriteLine(item.UserName);
+            //}
         }
 
         private static void Init()
