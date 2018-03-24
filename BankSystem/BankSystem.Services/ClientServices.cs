@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace BankSystem.Services
 {
-    public class ClientServices :IClientServices
+    public class ClientServices : IClientServices
     {
         private readonly IBankSystemContext dbContext;
         private readonly IMapper mapper;
@@ -26,7 +26,7 @@ namespace BankSystem.Services
 
         public void AddClient(ClientAddModel client)
         {
-            if (client==null)
+            if (client == null)
             {
                 throw new ArgumentNullException("Fuck you bitch the, you can not add new client that is NULL");
             }
@@ -35,7 +35,7 @@ namespace BankSystem.Services
 
             this.dbContext.Clients.Add(clientToAdd);
             this.dbContext.SaveChanges();
-                       
+
 
         }
 
@@ -50,7 +50,22 @@ namespace BankSystem.Services
                            where e.Id == ID
                            select e;
             return customer.ProjectTo<ClientReadModel>().FirstOrDefault();
-                //this.dbContext.Clients.Where(x=>x.Id==ID).ProjectTo<ClientReadModel>().FirstOrDefault();
+            //this.dbContext.Clients.Where(x=>x.Id==ID).ProjectTo<ClientReadModel>().FirstOrDefault();
+        }
+
+
+        public ClientReadModel DeleteClientByID(int ID)
+        {
+            var costumers = from e in this.dbContext.Clients
+                            where e.Id == ID
+                            select e;
+
+            costumers.FirstOrDefault().IsDeleted = true;
+
+           
+            this.dbContext.SaveChanges();
+
+            return costumers.ProjectTo<ClientReadModel>().FirstOrDefault();
 
         }
 

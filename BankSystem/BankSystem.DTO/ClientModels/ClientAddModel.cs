@@ -13,6 +13,13 @@ namespace BankSystem.DTO.ClientModels
     {
         //public string FullName { get; set; }
 
+        //public ClientAddModel()
+        //{
+        //    this.BankAccounts = new List<BankAccount>();
+        //    this.Contacts = new List<ClientContact>();
+            
+        //}
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -21,8 +28,11 @@ namespace BankSystem.DTO.ClientModels
 
         public string Password { get; set; }
 
+        //public bool IsDeleted { get; set; }
 
-        public ICollection<BankAccount> BankAccounts { get; set; }
+        //public  ICollection<BankAccount> BankAccounts { get; set; }
+
+        //public  ICollection<ClientContact> Contacts { get; set; }
 
         //public void CreateMappings(IMapperConfigurationExpression configuration)
         //{

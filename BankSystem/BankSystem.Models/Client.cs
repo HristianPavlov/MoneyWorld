@@ -9,6 +9,7 @@ namespace BankSystem.Models
         public Client()
         {
             this.BankAccounts = new HashSet<BankAccount>();
+            this.Contacts = new HashSet<ClientContact>();
         }
 
         public int Id { get; set; }
@@ -21,7 +22,9 @@ namespace BankSystem.Models
 
         [Index(IsUnique = true)]
         [MinLength(8, ErrorMessage = "Username should be at least 8 symbols long.")]
+
         [MaxLength(30, ErrorMessage = "Username should be no longer than 8 symbols.")]
+
         public string UserName { get; set; }
 
         public string Password { get; set; }

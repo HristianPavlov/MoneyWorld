@@ -14,5 +14,11 @@ namespace BankSystem.Services.Contracts
 
         IEnumerable<ClientReadModel> GetClients();
 
+        ClientReadModel GetClientByID(int ID);
+
+        ClientReadModel DeleteClientByID(int ID);
+
+
+
     }
 }
