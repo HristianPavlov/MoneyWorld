@@ -53,7 +53,6 @@
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
     <Compile Include="Card.cs" />
-    <Compile Include="CardModel.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientContact.cs" />
     <Compile Include="Enums\BankAccountType.cs" />

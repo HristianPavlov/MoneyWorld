@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardModel.cs" />
     <Compile Include="ClientModels\ClientAddModel.cs" />
     <Compile Include="BankAccountModel.cs" />
     <Compile Include="ClientModels\ClientModel.cs" />

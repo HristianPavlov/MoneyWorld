@@ -25,7 +25,7 @@ namespace BankSystem.DTO
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Card, CardModel>();
+            configuration.CreateMap<Card, CardModel>().ReverseMap();
         }
     }
 }
