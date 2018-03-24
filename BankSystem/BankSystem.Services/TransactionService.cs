@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using BankSystem.Data;
 using BankSystem.Data.Contracts;
 using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using BankSystem.Models;
 using BankSystem.Services.Contracts;
 using System;

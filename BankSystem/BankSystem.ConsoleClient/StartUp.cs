@@ -2,6 +2,7 @@
 using AutoMapper;
 using BankSystem.Common;
 using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using BankSystem.Models;
 using BankSystem.Models.Enums;
 using BankSystem.Services;
@@ -41,7 +42,7 @@ namespace BankSystem.ConsoleClient
                 UserName = "aaaaaaaa"
             };
 
-            var result = transactionService.GetClientTransactionsFromDateToDate(client, new DateTime(2018, 03, 20), new DateTime(2018, 03, 22)).ToList();
+            //var result = transactionService.GetClientTransactionsFromDateToDate(client, new DateTime(2018, 03, 20), new DateTime(2018, 03, 22)).ToList();
 
             Console.WriteLine();
 
