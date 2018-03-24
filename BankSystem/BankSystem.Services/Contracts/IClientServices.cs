@@ -1,4 +1,5 @@
 ﻿using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace BankSystem.Services.Contracts
 {
   public  interface IClientServices
     {
-        void AddClient(ClientModel client);
+        void AddClient(ClientAddModel client);
 
-        IQueryable<ClientModel> GetClients();
+        IEnumerable<ClientReadModel> GetClients();
 
     }
 }

@@ -51,7 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientModel.cs" />
+    <Compile Include="ClientModels\ClientAddModel.cs" />
+    <Compile Include="ClientModels\ClientReadModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

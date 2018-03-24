@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BankSystem.ConsoleClient.AutofacModules;
 using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using BankSystem.Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace BankSystem.ConsoleClient.Controllers
                 throw new ArgumentNullException("bitch, you can't add null stuff, check your shit");
             }
 
-            var client = new ClientModel
+            var client = new ClientAddModel
             {
                 UserName = userName,
                 FirstName = firstName,
@@ -41,7 +42,7 @@ namespace BankSystem.ConsoleClient.Controllers
             this.clientService.AddClient(client);
 
         }
-        public IEnumerable<ClientModel> GetAll()
+        public IEnumerable<ClientReadModel> GetAll()
         {
             var posts = this.clientService.GetClients();
 

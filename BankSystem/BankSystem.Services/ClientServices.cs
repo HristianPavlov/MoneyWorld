@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using BankSystem.Data.Contracts;
 using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using BankSystem.Models;
 using BankSystem.Services.Contracts;
 using System;
@@ -23,11 +24,11 @@ namespace BankSystem.Services
             this.mapper = mapper;
         }
 
-        public void AddClient(ClientModel client)
+        public void AddClient(ClientAddModel client)
         {
             if (client==null)
             {
-                throw new ArgumentNullException("Fuck you bitch the, you can not new client that is NULL");
+                throw new ArgumentNullException("Fuck you bitch the, you can not add new client that is NULL");
             }
 
             var clientToAdd = this.mapper.Map<Client>(client);
@@ -38,11 +39,20 @@ namespace BankSystem.Services
 
         }
 
-        public IQueryable<ClientModel> GetClients()
+        public IEnumerable<ClientReadModel> GetClients()
         {
-            return this.dbContext.Clients.ProjectTo<ClientModel>();
+            return this.dbContext.Clients.ProjectTo<ClientReadModel>();
         }
 
+        public ClientReadModel GetClientByID(int ID)
+        {
+            var customer = from e in this.dbContext.Clients
+                           where e.Id == ID
+                           select e;
+            return customer.ProjectTo<ClientReadModel>().FirstOrDefault();
+                //this.dbContext.Clients.Where(x=>x.Id==ID).ProjectTo<ClientReadModel>().FirstOrDefault();
+
+        }
 
     }
 }
