@@ -75,6 +75,22 @@
     <Compile Include="Migrations\201803190941395_ClientContactColumnNamesChanged.Designer.cs">
       <DependentUpon>201803190941395_ClientContactColumnNamesChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803211438438_AddSenderIdAndReceiverIdToTransactionModel.cs" />
+    <Compile Include="Migrations\201803211438438_AddSenderIdAndReceiverIdToTransactionModel.Designer.cs">
+      <DependentUpon>201803211438438_AddSenderIdAndReceiverIdToTransactionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.cs" />
+    <Compile Include="Migrations\201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.Designer.cs">
+      <DependentUpon>201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211620260_AddForeignKeyAnnotationInTransaction.cs" />
+    <Compile Include="Migrations\201803211620260_AddForeignKeyAnnotationInTransaction.Designer.cs">
+      <DependentUpon>201803211620260_AddForeignKeyAnnotationInTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211643380_RemoveRequredFromSenderAndReceiver.cs" />
+    <Compile Include="Migrations\201803211643380_RemoveRequredFromSenderAndReceiver.Designer.cs">
+      <DependentUpon>201803211643380_RemoveRequredFromSenderAndReceiver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,6 +116,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803190941395_ClientContactColumnNamesChanged.resx">
       <DependentUpon>201803190941395_ClientContactColumnNamesChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211438438_AddSenderIdAndReceiverIdToTransactionModel.resx">
+      <DependentUpon>201803211438438_AddSenderIdAndReceiverIdToTransactionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.resx">
+      <DependentUpon>201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211620260_AddForeignKeyAnnotationInTransaction.resx">
+      <DependentUpon>201803211620260_AddForeignKeyAnnotationInTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211643380_RemoveRequredFromSenderAndReceiver.resx">
+      <DependentUpon>201803211643380_RemoveRequredFromSenderAndReceiver.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

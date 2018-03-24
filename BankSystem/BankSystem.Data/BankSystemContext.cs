@@ -50,6 +50,8 @@ namespace BankSystem.Data
                 .HasMany(b => b.Contacts)
                 .WithRequired(t => t.Owner)
                 .WillCascadeOnDelete(false);
+
+
         }
 
         //RegisterConfigurations

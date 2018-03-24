@@ -1,6 +1,6 @@
-﻿using System;
+﻿using BankSystem.Models.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
-using BankSystem.Models.Enums;
 
 namespace BankSystem.Models
 {
@@ -8,10 +8,12 @@ namespace BankSystem.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Transaction should have sender.")]
+        public int SenderId { get; set; }
+
+        public int ReceiverId { get; set; }
+
         public virtual BankAccount Sender { get; set; }
 
-        [Required(ErrorMessage = "Transaction should have receiver.")]
         public virtual BankAccount Receiver { get; set; }
 
         [Range(typeof(decimal), "0.01", "1000001", ErrorMessage = "Transaction money amount should be between 0.01 and 1000001")]
