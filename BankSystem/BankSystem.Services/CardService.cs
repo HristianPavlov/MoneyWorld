@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BankSystem.Data.Contracts;
 using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using BankSystem.Models;
 using BankSystem.Services.Contracts;
 using System;
@@ -21,10 +22,11 @@ namespace BankSystem.Services
             this.dbContext = dbContext;
             this.mapper = mapper;
         }
-        
+
         public void AddCard(CardModel card)
         {
-            ValidateCardObject(card);
+            CheckIfCardIsNull(card);
+            CheckIfBankAcountExists(card);
 
             var cardToAdd = this.mapper.Map<Card>(card);
 
@@ -34,62 +36,57 @@ namespace BankSystem.Services
 
         public void DeleteCard(CardModel card)
         {
-            ValidateCardObject(card);
+            CheckIfCardIsNull(card);
 
             var cardToDelete = this.dbContext.Cards
                 .First(x => x.Id == card.Id);
 
-            cardToDelete.IsDeleted = true; //something should happen with the bank acount?
-
-
+            cardToDelete.IsDeleted = true; 
         }
 
-        public CardModel GetCardById(int id)
+        public CardModel GetCardById(int CardId)
         {
-            bool exists = this.dbContext.Cards.Any(x => x.Id == id);
+            CheckIfCardExistInDatabase(CardId);
 
-            if (!exists)
-            {
-                throw new Exception("");
-            }
-
-            var card = this.dbContext.Cards.First(x => x.Id == id);
+            var card = this.dbContext.Cards.First(x => x.Id == CardId);
             var cardToReturn = this.mapper.Map<CardModel>(card);
-            
+
             return cardToReturn;
         }
 
         public ClientModel Owner(CardModel card)
         {
-            //FAAAACK
-            //var client = this.dbContext.Cards.Where(x => x.)
-            throw new NotImplementedException();
+            var client = this.dbContext.Cards
+                .Select(x => x.Account)
+                .Select(x => x.Owner);
+
+            var clientModel = this.mapper.Map<ClientModel>(client);
+
+            return clientModel;
         }
 
         public void UpdateCardInfo(int cardId, string pin, DateTime expirationTime)
         {
-            if (CheckIfCardExistInDatabase(cardId))
-            {
-                var cardToUpdate = this.dbContext.Cards.First(x => x.Id == cardId);
+            CheckIfCardExistInDatabase(cardId);
 
-                cardToUpdate.Pin = pin;
-                cardToUpdate.ExpirationDate = expirationTime;
+            var cardToUpdate = this.dbContext.Cards.First(x => x.Id == cardId);
 
-                this.dbContext.SaveChanges();
-            }
-            else
-            {
-                throw new Exception(string.Format("Card with id {0} does not exist in the databse", cardId));
-            }
+            cardToUpdate.Pin = pin;
+            cardToUpdate.ExpirationDate = expirationTime;
+
+            this.dbContext.SaveChanges();
         }
 
-        private void ValidateCardObject(CardModel card)
+        private void CheckIfCardIsNull(CardModel card)
         {
             if (card == null)
             {
                 throw new ArgumentNullException("");
             }
+        }
 
+        private void CheckIfBankAcountExists(CardModel card)
+        {
             bool isValidBankAcount = this.dbContext.BankAccounts
                 .Any(x => x.Id == card.Id);
 
@@ -99,11 +96,14 @@ namespace BankSystem.Services
             }
         }
 
-        private bool CheckIfCardExistInDatabase(int id)
+        private void CheckIfCardExistInDatabase(int cardId)
         {
-            bool ifExists = this.dbContext.Cards.Any(x => x.Id == id);
+            bool ifExists = this.dbContext.Cards.Any(x => x.Id == cardId);
 
-            return ifExists;
+            if (!ifExists)
+            {
+                throw new Exception(string.Format("Card with id {0} does not exist in the databse", cardId));
+            }
         }
     }
 }
