@@ -57,7 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardService.cs" />
     <Compile Include="ClientServices.cs" />
+    <Compile Include="Contracts\ICardService.cs" />
     <Compile Include="Contracts\IClientServices.cs" />
     <Compile Include="Contracts\ITransactionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
