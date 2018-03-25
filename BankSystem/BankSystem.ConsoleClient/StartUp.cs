@@ -24,26 +24,40 @@ namespace BankSystem.ConsoleClient
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
             var container = builder.Build();
 
-            var clientAddModel = new ClientAddModel()
-            {
-                FirstName = "NaMaika",
-                LastName = "Znaesh",
-                UserName = "Drunkkkkkkkk",
-                Password = "123456"
+            //var clientAddModel = new ClientAddModel()
+            //{
+            //    FirstName = "NaMaika",
+            //    LastName = "Znaesh",
+            //    UserName = "Drunkkkkkkkk",
+            //    Password = "123456"
                 
-            };
+            //};
 
             //var controller = new ClientController();
 
             var controller = container.Resolve<ClientController>();
             var clientService = container.Resolve<IClientServices>();
 
-            clientService.AddClient(clientAddModel);
+            //var client = clientService.GetClientByID(1);
+
+            var clients = clientService.GetClients();
+            foreach (var item in clients)
+            {
+                foreach (var ss in item.BankAccountsID)
+                {
+                    Console.WriteLine(ss.Id);
+                }
+                Console.WriteLine(item.UserName);
+
+            }
+
+
+            // clientService.AddClient(clientAddModel);
 
             //var transactionModel = new TransactionAddModel()
             //{
-            //    SenderId = 2,
-            //    ReceiverId = 3,
+            //    SenderId = 5,
+            //    ReceiverId = 9,
             //    Amount = 10m,
             //    Currency = Currency.BGN,
             //    Date = DateTime.Now
@@ -53,7 +67,7 @@ namespace BankSystem.ConsoleClient
 
 
 
-            //var transactionService = new TransactionService();
+            var transactionService = new TransactionService();
 
             //transactionService.AddTransaction(transactionModel);
 
@@ -62,9 +76,17 @@ namespace BankSystem.ConsoleClient
             //    UserName = "aaaaaaaa"
             //};
 
-            //var result = transactionService.GetClientTransactionsFromDateToDate(client, new DateTime(2018, 03, 20), new DateTime(2018, 03, 22)).ToList();
+            var bank = new BankAccountModel()
+            {
+                Id = 5
+            };
+            var result = transactionService.GetBankAccountTransactionsFromDateToDate(bank, new DateTime(2018, 03, 20), new DateTime(2018, 03, 27)).ToList();
 
-            //Console.WriteLine();
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.Amount);
+            }
+            
 
 
 
@@ -77,9 +99,9 @@ namespace BankSystem.ConsoleClient
             ////controller.AddClient(read[0], read[1], read[2], read[3]);
 
 
-            //var clients = controller.GetAll();
+            //var clientss = controller.GetAll();
             ////var newww = new ClientModel();
-            //foreach (var item in clients)
+            //foreach (var item in clientss)
             //{
             //    Console.WriteLine(item.UserName);
             //}

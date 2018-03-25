@@ -46,10 +46,14 @@ namespace BankSystem.Services
 
         public ClientReadModel GetClientByID(int ID)
         {
-            var customer = from e in this.dbContext.Clients
-                           where e.Id == ID
-                           select e;
-            return customer.ProjectTo<ClientReadModel>().FirstOrDefault();
+            var customer = this.dbContext.Clients.ProjectTo<ClientReadModel>();
+
+                //from e in this.dbContext.Clients
+                //           where e.Id == ID
+                //           select e;
+               // .ProjectTo<ClientReadModel>().FirstOrDefault()
+              // .FirstOrDefault()
+            return customer.FirstOrDefault();
             //this.dbContext.Clients.Where(x=>x.Id==ID).ProjectTo<ClientReadModel>().FirstOrDefault();
         }
 

@@ -25,21 +25,18 @@ namespace BankSystem.DTO.ClientModels
 
         public bool IsDeleted { get; set; }
 
-        public ICollection<int> BankAccountsID { get; set; }
+        public ICollection<BankAccountReadModel> BankAccountsID { get; set; }
 
-        public  ICollection<int> Contacts { get; set; }
+       public  ICollection<ContactsReadModel> Contacts { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<Client, ClientReadModel>()
                 .ForMember(x => x.FullName, cfg
-                => cfg.MapFrom(x => x.FirstName + " " + x.LastName));
-
-            configuration.CreateMap<Client, ClientReadModel>()
-                .ForMember(x => x.BankAccountsID, cfg => cfg.MapFrom(x => x.BankAccounts.Select(t => t.Id))).ReverseMap();
-
-            configuration.CreateMap<Client, ClientReadModel>()
-                .ForMember(x => x.Contacts, cfg => cfg.MapFrom(x => x.Contacts.Select(t => t.Id))).ReverseMap();
+                => cfg.MapFrom(x => x.FirstName + " " + x.LastName))
+                //.ForMember(x => x.BankAccountsID, cfg => cfg.MapFrom(x => x.BankAccounts.Select(t => t.Id)))
+                //.ForMember(x => x.Contacts, cfg => cfg.MapFrom(x => x.Contacts.Select(t => t.Id)))
+                .ReverseMap();
         }
 
     }
