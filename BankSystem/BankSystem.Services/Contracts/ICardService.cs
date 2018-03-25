@@ -14,6 +14,8 @@ namespace BankSystem.Services.Contracts
 
         void DeleteCard(CardModel card);
 
+        void DeleteCard(int id);
+
         void UpdateCardInfo(int cardId, string pin, DateTime expirationTime);
 
         ClientModel Owner(CardModel card);

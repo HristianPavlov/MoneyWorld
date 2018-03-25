@@ -44,6 +44,13 @@ namespace BankSystem.Services
             cardToDelete.IsDeleted = true; 
         }
 
+        public void DeleteCard(int id)
+        {
+            var cardToDelete = this.dbContext.Cards.FirstOrDefault(x => x.Id == id);
+
+            cardToDelete.IsDeleted = true;
+        }
+
         public CardModel GetCardById(int CardId)
         {
             CheckIfCardExistInDatabase(CardId);
@@ -58,7 +65,8 @@ namespace BankSystem.Services
         {
             var client = this.dbContext.Cards
                 .Select(x => x.Account)
-                .Select(x => x.Owner);
+                .Select(x => x.Owner)
+                .FirstOrDefault();
 
             var clientModel = this.mapper.Map<ClientModel>(client);
 

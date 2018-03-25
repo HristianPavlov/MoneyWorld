@@ -21,7 +21,7 @@ namespace BankSystem.DTO
         
         public string SecretNumber { get; set; }
         
-        public virtual BankAccount Account { get; set; }
+        public virtual BankAccountModel Account { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {

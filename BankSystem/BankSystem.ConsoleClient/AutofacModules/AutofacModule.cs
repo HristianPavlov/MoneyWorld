@@ -24,6 +24,7 @@ namespace BankSystem.ConsoleClient.AutofacModules
 
             builder.RegisterType<ClientController>().AsSelf().InstancePerDependency();
 
+            builder.RegisterType<CardService>().As<ICardService>().InstancePerDependency();
 
             builder.Register(x => Mapper.Instance);
 
