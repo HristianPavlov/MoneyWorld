@@ -63,8 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankAccountServices.cs" />
     <Compile Include="CardService.cs" />
     <Compile Include="ClientServices.cs" />
+    <Compile Include="Contracts\IBankAccountServices.cs" />
     <Compile Include="Contracts\ICardService.cs" />
     <Compile Include="Contracts\IClientServices.cs" />
     <Compile Include="Contracts\ITransactionService.cs" />

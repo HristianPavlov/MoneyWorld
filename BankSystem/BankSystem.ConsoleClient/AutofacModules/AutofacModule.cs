@@ -21,8 +21,11 @@ namespace BankSystem.ConsoleClient.AutofacModules
             builder.RegisterType<BankSystemContext>().As<IBankSystemContext>().InstancePerDependency();
 
             builder.RegisterType<ClientServices>().As<IClientServices>().InstancePerDependency();
+            builder.RegisterType<BankAccountServices>().As<IBankAccountServices>().InstancePerDependency();
 
+            builder.RegisterType<TransactionService>().As<ITransactionService>().InstancePerDependency();
             builder.RegisterType<ClientController>().AsSelf().InstancePerDependency();
+
 
             builder.RegisterType<CardService>().As<ICardService>().InstancePerDependency();
 

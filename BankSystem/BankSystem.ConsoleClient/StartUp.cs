@@ -8,7 +8,7 @@ using BankSystem.Models;
 using BankSystem.Models.Enums;
 using BankSystem.Services;
 using BankSystem.Services.Contracts;
-using BankSystem.Services.PDF;
+//using BankSystem.Services.
 using System;
 using System.Linq;
 using System.Reflection;
@@ -36,8 +36,13 @@ namespace BankSystem.ConsoleClient
 
             //var controller = new ClientController();
 
-            //var controller = container.Resolve<ClientController>();
-            //var clientService = container.Resolve<IClientServices>();
+            var controller = container.Resolve<ClientController>();
+            var clientService = container.Resolve<IClientServices>();
+            var bankse = container.Resolve<IBankAccountServices>();
+
+           var bank= bankse.DeleteBankAccount("11");
+
+
 
             //clientService.AddClient(clientAddModel);
 
@@ -84,7 +89,7 @@ namespace BankSystem.ConsoleClient
             //{
             //    Console.WriteLine(item.UserName);
             //}
-            
+
         }
 
         private static void Init()

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BankSystem.Services.Contracts
 {
-    interface ITransactionService
+  public  interface ITransactionService
     {
         void AddTransaction(TransactionAddModel transaction);
 
