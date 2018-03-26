@@ -42,6 +42,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -91,6 +97,30 @@
     <Compile Include="Migrations\201803211643380_RemoveRequredFromSenderAndReceiver.Designer.cs">
       <DependentUpon>201803211643380_RemoveRequredFromSenderAndReceiver.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803261137342_DetachClientTable.cs" />
+    <Compile Include="Migrations\201803261137342_DetachClientTable.Designer.cs">
+      <DependentUpon>201803261137342_DetachClientTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261141418_DropClientTable.cs" />
+    <Compile Include="Migrations\201803261141418_DropClientTable.Designer.cs">
+      <DependentUpon>201803261141418_DropClientTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261156528_AddAplicationUserTable.cs" />
+    <Compile Include="Migrations\201803261156528_AddAplicationUserTable.Designer.cs">
+      <DependentUpon>201803261156528_AddAplicationUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261251067_AddAdditionalPropertiesToUser.cs" />
+    <Compile Include="Migrations\201803261251067_AddAdditionalPropertiesToUser.Designer.cs">
+      <DependentUpon>201803261251067_AddAdditionalPropertiesToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261253100_ConnectUserToBankAccounts.cs" />
+    <Compile Include="Migrations\201803261253100_ConnectUserToBankAccounts.Designer.cs">
+      <DependentUpon>201803261253100_ConnectUserToBankAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803261337454_ConnectUserToContacts.cs" />
+    <Compile Include="Migrations\201803261337454_ConnectUserToContacts.Designer.cs">
+      <DependentUpon>201803261337454_ConnectUserToContacts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -128,6 +158,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803211643380_RemoveRequredFromSenderAndReceiver.resx">
       <DependentUpon>201803211643380_RemoveRequredFromSenderAndReceiver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261137342_DetachClientTable.resx">
+      <DependentUpon>201803261137342_DetachClientTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261141418_DropClientTable.resx">
+      <DependentUpon>201803261141418_DropClientTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261156528_AddAplicationUserTable.resx">
+      <DependentUpon>201803261156528_AddAplicationUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261251067_AddAdditionalPropertiesToUser.resx">
+      <DependentUpon>201803261251067_AddAdditionalPropertiesToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261253100_ConnectUserToBankAccounts.resx">
+      <DependentUpon>201803261253100_ConnectUserToBankAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803261337454_ConnectUserToContacts.resx">
+      <DependentUpon>201803261337454_ConnectUserToContacts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

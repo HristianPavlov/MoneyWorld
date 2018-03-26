@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using BankSystem.Models.Enums;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using BankSystem.Models.Enums;
 
 namespace BankSystem.Models
 {
@@ -24,7 +24,7 @@ namespace BankSystem.Models
         public Currency? Currency { get; set; }
 
         [Required(ErrorMessage = "Bank account should have owner.")]
-        public virtual Client Owner { get; set; }
+        public virtual ApplicationUser Owner { get; set; }
 
         public bool IsDeleted { get; set; }
 
@@ -33,6 +33,5 @@ namespace BankSystem.Models
         public virtual ICollection<Transaction> SendTransactions { get; set; }
 
         public virtual ICollection<Transaction> ReceivedTransactions { get; set; }
-
     }
 }

@@ -1,27 +1,19 @@
-﻿using BankSystem.DTO;
-using BankSystem.DTO.ClientModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BankSystem.Services.Contracts
+﻿namespace BankSystem.Services.Contracts
 {
     public interface ICardService
     {
-        void AddCard(CardModel card);
+        //void AddCard(CardModel card);
 
-        void DeleteCard(CardModel card);
+        //void DeleteCard(CardModel card);
 
-        void DeleteCard(int id);
+        //void DeleteCard(int id);
 
-        void UpdateCardInfo(int cardId, string pin, DateTime expirationTime);
+        //void UpdateCardInfo(int cardId, string pin, DateTime expirationTime);
 
-        ClientModel Owner(CardModel card);
+        //ClientModel Owner(CardModel card);
 
-        //get bankAcount
+        ////get bankAcount
 
-        CardModel GetCardById(int id);
+        //CardModel GetCardById(int id);
     }
 }

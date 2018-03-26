@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankSystem.Models
 {
     public class Client
     {
-        public Client()
-        {
-            this.BankAccounts = new HashSet<BankAccount>();
-            this.Contacts = new HashSet<ClientContact>();
-        }
+        //public Client()
+        //{
+        //    this.BankAccounts = new HashSet<BankAccount>();
+        //    this.Contacts = new HashSet<ClientContact>();
+        //}
 
         public int Id { get; set; }
 
@@ -31,8 +30,8 @@ namespace BankSystem.Models
 
         public bool IsDeleted { get; set; }
 
-        public virtual ICollection<BankAccount> BankAccounts { get; set; }
+        //public virtual ICollection<BankAccount> BankAccounts { get; set; }
 
-        public virtual ICollection<ClientContact> Contacts { get; set; }
+        //public virtual ICollection<ClientContact> Contacts { get; set; }
     }
 }

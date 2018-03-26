@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
 using BankSystem.Data.Contracts;
 using BankSystem.DTO;
-using BankSystem.DTO.ClientModels;
 using BankSystem.Models;
 using BankSystem.Services.Contracts;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankSystem.Services
 {
@@ -41,7 +37,7 @@ namespace BankSystem.Services
             var cardToDelete = this.dbContext.Cards
                 .First(x => x.Id == card.Id);
 
-            cardToDelete.IsDeleted = true; 
+            cardToDelete.IsDeleted = true;
         }
 
         public void DeleteCard(int id)
@@ -61,17 +57,17 @@ namespace BankSystem.Services
             return cardToReturn;
         }
 
-        public ClientModel Owner(CardModel card)
-        {
-            var client = this.dbContext.Cards
-                .Select(x => x.Account)
-                .Select(x => x.Owner)
-                .FirstOrDefault();
+        //public ClientModel Owner(CardModel card)
+        //{
+        //    var client = this.dbContext.Cards
+        //        .Select(x => x.Account)
+        //        .Select(x => x.Owner)
+        //        .FirstOrDefault();
 
-            var clientModel = this.mapper.Map<ClientModel>(client);
+        //    var clientModel = this.mapper.Map<ClientModel>(client);
 
-            return clientModel;
-        }
+        //    return clientModel;
+        //}
 
         public void UpdateCardInfo(int cardId, string pin, DateTime expirationTime)
         {

@@ -24,14 +24,14 @@ namespace BankSystem.DTO
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Transaction, TransactionInfoModel>()
-                .ForMember(x => x.SenderAccountOwner, cfg
-                    => cfg.MapFrom(x => x.Sender.Owner.UserName + " / " +
-                                        x.Sender.Owner.FirstName + " " + x.Sender.Owner.LastName))
-                .ForMember(x => x.ReveiverAccountOwner, cfg
-                    => cfg.MapFrom(x => x.Receiver.Owner.UserName + " / " +
-                                        x.Receiver.Owner.FirstName + " " + x.Receiver.Owner.LastName))
-                .ReverseMap();
+            //configuration.CreateMap<Transaction, TransactionInfoModel>()
+            //    .ForMember(x => x.SenderAccountOwner, cfg
+            //        => cfg.MapFrom(x => x.Sender.Owner.UserName + " / " +
+            //                            x.Sender.Owner.FirstName + " " + x.Sender.Owner.LastName))
+            //    .ForMember(x => x.ReveiverAccountOwner, cfg
+            //        => cfg.MapFrom(x => x.Receiver.Owner.UserName + " / " +
+            //                            x.Receiver.Owner.FirstName + " " + x.Receiver.Owner.LastName))
+            //    .ReverseMap();
         }
     }
 }

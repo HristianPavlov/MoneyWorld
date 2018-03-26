@@ -1,13 +1,7 @@
 ﻿using AutoMapper;
-using BankSystem.ConsoleClient.AutofacModules;
-using BankSystem.DTO;
 using BankSystem.DTO.ClientModels;
 using BankSystem.Services.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankSystem.ConsoleClient.Controllers
 {
@@ -39,15 +33,15 @@ namespace BankSystem.ConsoleClient.Controllers
 
             };
 
-            this.clientService.AddClient(client);
+            //this.clientService.AddClient(client);
 
         }
-        public IEnumerable<ClientReadModel> GetAll()
-        {
-            var posts = this.clientService.GetClients();
+        //public IEnumerable<ClientReadModel> GetAll()
+        //{
+        //    var posts = this.clientService.GetClients();
 
-            return posts;
-        }
+        //    return posts;
+        //}
 
 
 
