@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BankSystem.DTO.ClientModels
 {
-    public class ClientAddModel : IMapFrom<Client>
+    public class ClientAddModel : IMapFrom<ApplicationUser>
     {
         //public string FullName { get; set; }
 

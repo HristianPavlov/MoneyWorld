@@ -1,14 +1,17 @@
-﻿namespace BankSystem.Services.Contracts
+﻿using BankSystem.DTO.ClientModels;
+using System.Collections.Generic;
+
+namespace BankSystem.Services.Contracts
 {
     public interface IClientServices
     {
-        //void AddClient(ClientAddModel client);
+       // void AddClient(ClientAddModel client);
 
-        //IEnumerable<ClientReadModel> GetClients();
+        IEnumerable<ClientReadModel> GetClients();
 
-        //ClientReadModel GetClientByID(int ID);
+        ClientReadModel GetClientByID(string ID);
 
-        //ClientReadModel DeleteClientByID(int ID);
+        ClientReadModel DeleteClientByID(string ID);
 
 
 

@@ -13,6 +13,8 @@ namespace BankSystem.Data.Contracts
 
         IDbSet<ExchangeRate> ExchangeRates { get; set; }
 
+        IDbSet<ApplicationUser> Users { get; set; }
+
         int SaveChanges();
 
     }

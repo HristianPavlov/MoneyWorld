@@ -18,6 +18,7 @@ namespace BankSystem.Data
             : base(connection, true)
         {
         }
+       
 
         public IDbSet<BankAccount> BankAccounts { get; set; }
 

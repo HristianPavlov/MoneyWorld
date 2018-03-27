@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BankSystem.DTO.ClientModels
 {
-   public class ClientReadModel : IMapFrom<Client>,IHaveCustomMappings
+   public class ClientReadModel : IMapFrom<ApplicationUser>,IHaveCustomMappings
     {
-        //public int Id { get; set; }
+        public string Id { get; set; }
 
         public string FullName { get; set; }
 
@@ -31,7 +31,7 @@ namespace BankSystem.DTO.ClientModels
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Client, ClientReadModel>()
+            configuration.CreateMap<ApplicationUser, ClientReadModel>()
                 .ForMember(x => x.FullName, cfg
                 => cfg.MapFrom(x => x.FirstName + " " + x.LastName))
                 //.ForMember(x => x.BankAccountsID, cfg => cfg.MapFrom(x => x.BankAccounts.Select(t => t.Id)))

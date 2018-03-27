@@ -7,18 +7,18 @@ namespace BankSystem.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddAdditionalPropertiesToUser : IMigrationMetadata
+    public sealed partial class _1234 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAdditionalPropertiesToUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_1234));
         
         string IMigrationMetadata.Id
         {
-            get { return "201803261251067_AddAdditionalPropertiesToUser"; }
+            get { return "201803262212468_1234"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

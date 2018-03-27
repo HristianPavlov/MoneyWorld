@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using BankSystem.Data.Contracts;
+using BankSystem.DTO.ClientModels;
 using BankSystem.Services.Contracts;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BankSystem.Services
 {
@@ -30,39 +34,39 @@ namespace BankSystem.Services
 
         //}
 
-        //public IEnumerable<ClientReadModel> GetClients()
-        //{
-        //    return this.dbContext.Clients.ProjectTo<ClientReadModel>();
-        //}
+        public IEnumerable<ClientReadModel> GetClients()
+        {
+            return this.dbContext.Users.ProjectTo<ClientReadModel>();
+        }
 
-        //public ClientReadModel GetClientByID(int ID)
-        //{
-        //    var customer = this.dbContext.Clients.ProjectTo<ClientReadModel>();
+        public ClientReadModel GetClientByID(string ID)
+        {
+            var customer = this.dbContext.Users.ProjectTo<ClientReadModel>();
 
-        //        //from e in this.dbContext.Clients
-        //        //           where e.Id == ID
-        //        //           select e;
-        //       // .ProjectTo<ClientReadModel>().FirstOrDefault()
-        //      // .FirstOrDefault()
-        //    return customer.FirstOrDefault();
-        //    //this.dbContext.Clients.Where(x=>x.Id==ID).ProjectTo<ClientReadModel>().FirstOrDefault();
-        //}
-
-
-        //public ClientReadModel DeleteClientByID(int ID)
-        //{
-        //    var costumers = from e in this.dbContext.Clients
-        //                    where e.Id == ID
-        //                    select e;
-
-        //    costumers.FirstOrDefault().IsDeleted = true;
+            //from e in this.dbContext.Clients
+            //where e.Id == ID
+            //select e;
+            // .ProjectTo<ClientReadModel>().FirstOrDefault()
+            // .FirstOrDefault()
+            return customer.Where(x=>x.Id==ID).FirstOrDefault();
+            //this.dbContext.Clients.Where(x=>x.Id==ID).ProjectTo<ClientReadModel>().FirstOrDefault();
+        }
 
 
-        //    this.dbContext.SaveChanges();
+        public ClientReadModel DeleteClientByID(string ID)
+        {
+            var costumers = from e in this.dbContext.Users
+                            where e.Id == ID
+                            select e;
 
-        //    return costumers.ProjectTo<ClientReadModel>().FirstOrDefault();
+            costumers.FirstOrDefault().IsDeleted = true;
 
-        //}
+
+            this.dbContext.SaveChanges();
+
+            return costumers.ProjectTo<ClientReadModel>().FirstOrDefault();
+
+        }
 
     }
 }

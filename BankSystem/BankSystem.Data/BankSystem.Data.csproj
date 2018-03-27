@@ -65,61 +65,9 @@
   <ItemGroup>
     <Compile Include="BankSystemContext.cs" />
     <Compile Include="Contracts\IBankSystemContext.cs" />
-    <Compile Include="Migrations\201803150928491_Initial.cs" />
-    <Compile Include="Migrations\201803150928491_Initial.Designer.cs">
-      <DependentUpon>201803150928491_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803151507261_ChangeRequiredTableProperties.cs" />
-    <Compile Include="Migrations\201803151507261_ChangeRequiredTableProperties.Designer.cs">
-      <DependentUpon>201803151507261_ChangeRequiredTableProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803181451018_contacts added.cs" />
-    <Compile Include="Migrations\201803181451018_contacts added.Designer.cs">
-      <DependentUpon>201803181451018_contacts added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803190941395_ClientContactColumnNamesChanged.cs" />
-    <Compile Include="Migrations\201803190941395_ClientContactColumnNamesChanged.Designer.cs">
-      <DependentUpon>201803190941395_ClientContactColumnNamesChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803211438438_AddSenderIdAndReceiverIdToTransactionModel.cs" />
-    <Compile Include="Migrations\201803211438438_AddSenderIdAndReceiverIdToTransactionModel.Designer.cs">
-      <DependentUpon>201803211438438_AddSenderIdAndReceiverIdToTransactionModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.cs" />
-    <Compile Include="Migrations\201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.Designer.cs">
-      <DependentUpon>201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803211620260_AddForeignKeyAnnotationInTransaction.cs" />
-    <Compile Include="Migrations\201803211620260_AddForeignKeyAnnotationInTransaction.Designer.cs">
-      <DependentUpon>201803211620260_AddForeignKeyAnnotationInTransaction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803211643380_RemoveRequredFromSenderAndReceiver.cs" />
-    <Compile Include="Migrations\201803211643380_RemoveRequredFromSenderAndReceiver.Designer.cs">
-      <DependentUpon>201803211643380_RemoveRequredFromSenderAndReceiver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803261137342_DetachClientTable.cs" />
-    <Compile Include="Migrations\201803261137342_DetachClientTable.Designer.cs">
-      <DependentUpon>201803261137342_DetachClientTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803261141418_DropClientTable.cs" />
-    <Compile Include="Migrations\201803261141418_DropClientTable.Designer.cs">
-      <DependentUpon>201803261141418_DropClientTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803261156528_AddAplicationUserTable.cs" />
-    <Compile Include="Migrations\201803261156528_AddAplicationUserTable.Designer.cs">
-      <DependentUpon>201803261156528_AddAplicationUserTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803261251067_AddAdditionalPropertiesToUser.cs" />
-    <Compile Include="Migrations\201803261251067_AddAdditionalPropertiesToUser.Designer.cs">
-      <DependentUpon>201803261251067_AddAdditionalPropertiesToUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803261253100_ConnectUserToBankAccounts.cs" />
-    <Compile Include="Migrations\201803261253100_ConnectUserToBankAccounts.Designer.cs">
-      <DependentUpon>201803261253100_ConnectUserToBankAccounts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803261337454_ConnectUserToContacts.cs" />
-    <Compile Include="Migrations\201803261337454_ConnectUserToContacts.Designer.cs">
-      <DependentUpon>201803261337454_ConnectUserToContacts.cs</DependentUpon>
+    <Compile Include="Migrations\201803262212468_1234.cs" />
+    <Compile Include="Migrations\201803262212468_1234.Designer.cs">
+      <DependentUpon>201803262212468_1234.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,51 +83,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803150928491_Initial.resx">
-      <DependentUpon>201803150928491_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803151507261_ChangeRequiredTableProperties.resx">
-      <DependentUpon>201803151507261_ChangeRequiredTableProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803181451018_contacts added.resx">
-      <DependentUpon>201803181451018_contacts added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803190941395_ClientContactColumnNamesChanged.resx">
-      <DependentUpon>201803190941395_ClientContactColumnNamesChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803211438438_AddSenderIdAndReceiverIdToTransactionModel.resx">
-      <DependentUpon>201803211438438_AddSenderIdAndReceiverIdToTransactionModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.resx">
-      <DependentUpon>201803211613214_AddSenderIdAndReceiverIdToTransactionModel1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803211620260_AddForeignKeyAnnotationInTransaction.resx">
-      <DependentUpon>201803211620260_AddForeignKeyAnnotationInTransaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803211643380_RemoveRequredFromSenderAndReceiver.resx">
-      <DependentUpon>201803211643380_RemoveRequredFromSenderAndReceiver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803261137342_DetachClientTable.resx">
-      <DependentUpon>201803261137342_DetachClientTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803261141418_DropClientTable.resx">
-      <DependentUpon>201803261141418_DropClientTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803261156528_AddAplicationUserTable.resx">
-      <DependentUpon>201803261156528_AddAplicationUserTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803261251067_AddAdditionalPropertiesToUser.resx">
-      <DependentUpon>201803261251067_AddAdditionalPropertiesToUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803261253100_ConnectUserToBankAccounts.resx">
-      <DependentUpon>201803261253100_ConnectUserToBankAccounts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803261337454_ConnectUserToContacts.resx">
-      <DependentUpon>201803261337454_ConnectUserToContacts.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Configurations\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Configurations\" />
+    <EmbeddedResource Include="Migrations\201803262212468_1234.resx">
+      <DependentUpon>201803262212468_1234.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
