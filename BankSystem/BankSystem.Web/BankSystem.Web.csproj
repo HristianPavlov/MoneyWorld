@@ -203,6 +203,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="AutofacConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BankAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
@@ -273,6 +274,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Transaction\AllTransactions.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\BankAccount\BankAccountGetAll.cshtml" />
+=======
+>>>>>>> 98b5885efde2b78c6dae36e2555d0e8f5125df93
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

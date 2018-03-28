@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<BankSystem.DTO.BankAccountReadModel>
+@{
+    ViewBag.Title = "BankAccountGetAll";
+}
+
+<h2>BankAccountGetAll</h2>
+@{
+    foreach (var acc in Model)
+    {
+        <h1>BankAccountType</h1>
+        <p>@acc.BankAccountType</p>
+        <h1>Amount</h1>
+        <p>@acc.Amount</p>
+        <h1>Currency</h1>
+        <p>@acc.Currency</p>
+        <h1>Owner</h1>
+        <p>@acc.Owner</p>
+        foreach (var item in acc.Cards)
+        {
+            <h1>Card Id,Bitch</h1>
+            <p>@item.Id</p>
+        }
+        <h1>/////////////////////////////////////</h1>
+    }
+
+
+
+}
+
+
+
+
