@@ -1,15 +1,11 @@
 ﻿using AutoMapper;
 using BankSystem.Common.Mapping;
 using BankSystem.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankSystem.DTO.ClientModels
 {
-   public class ClientReadModel : IMapFrom<ApplicationUser>,IHaveCustomMappings
+    public class ClientReadModel : IMapFrom<ApplicationUser>, IHaveCustomMappings
     {
         public string Id { get; set; }
 
@@ -27,7 +23,7 @@ namespace BankSystem.DTO.ClientModels
 
         public ICollection<BankAccountReadModel> BankAccountsID { get; set; }
 
-       public  ICollection<ContactsReadModel> Contacts { get; set; }
+        public ICollection<ContactsReadModel> Contacts { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {

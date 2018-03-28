@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using BankSystem.Data;
 using BankSystem.Data.Contracts;
 using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using BankSystem.Models;
 using BankSystem.Services.Contracts;
 using System;
@@ -15,12 +15,6 @@ namespace BankSystem.Services
     {
         private readonly IBankSystemContext dbContext;
         private readonly IMapper mapper;
-
-        public TransactionService()
-        {
-            this.dbContext = new BankSystemContext();
-            this.mapper = Mapper.Instance;
-        }
 
         public TransactionService(IBankSystemContext dbContext, IMapper mapper)
         {
@@ -42,35 +36,35 @@ namespace BankSystem.Services
             this.dbContext.SaveChanges();
         }
 
-        //public IEnumerable<TransactionInfoModel> GetAllClientTransactions(ClientModel client)
-        //{
-        //    if (client == null)
-        //    {
-        //        throw new ArgumentNullException();
-        //    }
+        public IEnumerable<TransactionInfoModel> GetAllClientTransactions(ClientModel client)
+        {
+            if (client == null)
+            {
+                throw new ArgumentNullException();
+            }
 
-        //    var result = this.dbContext.Transactions
-        //        .Where(t => t.Sender.Owner.UserName == client.UserName || t.Receiver.Owner.UserName == client.UserName)
-        //        .ProjectTo<TransactionInfoModel>();
+            var result = this.dbContext.Transactions
+                .Where(t => t.Sender.Owner.UserName == client.UserName || t.Receiver.Owner.UserName == client.UserName)
+                .ProjectTo<TransactionInfoModel>();
 
-        //    return result;
-        //}
+            return result;
+        }
 
-        //public IEnumerable<TransactionInfoModel> GetClientTransactionsFromDateToDate
-        //    (ClientModel client, DateTime startDate, DateTime endDate)
-        //{
-        //    if (client == null)
-        //    {
-        //        throw new ArgumentNullException();
-        //    }
+        public IEnumerable<TransactionInfoModel> GetClientTransactionsFromDateToDate
+            (ClientModel client, DateTime startDate, DateTime endDate)
+        {
+            if (client == null)
+            {
+                throw new ArgumentNullException();
+            }
 
-        //    var result = this.dbContext.Transactions
-        //        .Where(t => (t.Sender.Owner.UserName == client.UserName || t.Sender.Owner.UserName == client.UserName) &&
-        //                   (t.Date >= startDate && t.Date <= endDate))
-        //        .ProjectTo<TransactionInfoModel>();
+            var result = this.dbContext.Transactions
+                .Where(t => (t.Sender.Owner.UserName == client.UserName || t.Sender.Owner.UserName == client.UserName) &&
+                           (t.Date >= startDate && t.Date <= endDate))
+                .ProjectTo<TransactionInfoModel>();
 
-        //    return result;
-        //}
+            return result;
+        }
 
         public IEnumerable<TransactionInfoModel> GetBankAccountTransactions(BankAccountModel bankAccount)
         {

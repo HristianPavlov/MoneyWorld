@@ -115,4 +115,10 @@ namespace BankSystem.Web.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    public class UserViewModel
+    {
+        [Required]
+        public string UserName { get; set; }
+    }
 }
