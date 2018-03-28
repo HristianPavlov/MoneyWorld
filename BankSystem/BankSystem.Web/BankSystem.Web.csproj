@@ -274,10 +274,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Transaction\AllTransactions.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\BankAccount\BankAccountGetAll.cshtml" />
-=======
->>>>>>> 98b5885efde2b78c6dae36e2555d0e8f5125df93
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
