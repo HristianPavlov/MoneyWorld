@@ -13,6 +13,12 @@ namespace BankSystem.Services.Contracts
         
         BankAccountReadModel DeleteBankAccount(string id);
 
+        IEnumerable<BankAccountReadModel> GetAllBankAccounts();
+
+
+         BankAccountReadModel GetBankAccountByID(string id);
     
+
+
     }
 }

@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankSystem.Common
 {
@@ -13,8 +11,10 @@ namespace BankSystem.Common
     {
         public static void Initialize()
         {
-            var types = AppDomain.CurrentDomain
-                .GetAssemblies()
+            var assmeblies = AppDomain.CurrentDomain
+                .GetAssemblies().Where(a => a.FullName.Contains("BankSystem"));
+
+            var types = assmeblies
                 .Where(x => !x.IsDynamic)
                 .SelectMany(x => x.GetReferencedAssemblies())
                 .Select(x => Assembly.Load(x))

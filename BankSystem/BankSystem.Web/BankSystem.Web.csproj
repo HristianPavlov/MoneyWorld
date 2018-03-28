@@ -46,6 +46,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -53,6 +62,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -189,9 +201,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AutofacConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BankAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,6 +273,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Transaction\AllTransactions.cshtml" />
+    <Content Include="Views\BankAccount\BankAccountGetAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,13 +293,25 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BankSystem.Common\BankSystem.Common.csproj">
+      <Project>{dae59998-d29a-4435-97d8-84745fe06d63}</Project>
+      <Name>BankSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BankSystem.Data\BankSystem.Data.csproj">
       <Project>{d9931ac3-48da-43fb-a4c7-b814ffde2cb7}</Project>
       <Name>BankSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BankSystem.DTO\BankSystem.DTO.csproj">
+      <Project>{41b4229d-16c8-415c-ad29-8bc5cd19efd9}</Project>
+      <Name>BankSystem.DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BankSystem.Models\BankSystem.Models.csproj">
       <Project>{64d73f2b-4978-4657-8a8d-9fbfd03b420e}</Project>
       <Name>BankSystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BankSystem.Services\BankSystem.Services.csproj">
+      <Project>{b9d85dbf-7054-402a-b316-d03fb6b90314}</Project>
+      <Name>BankSystem.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -299,7 +328,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57431</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
