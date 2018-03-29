@@ -1,6 +1,5 @@
 ﻿using BankSystem.DTO;
 using BankSystem.DTO.ClientModels;
-using System;
 using System.Collections.Generic;
 
 namespace BankSystem.Services.Contracts
@@ -9,15 +8,8 @@ namespace BankSystem.Services.Contracts
     {
         void AddTransaction(TransactionAddModel transaction);
 
-        IEnumerable<TransactionInfoModel> GetAllClientTransactions(ClientModel client);
+        IEnumerable<TransactionInfoModel> GetTransactions(ClientModel transaction);
 
-        IEnumerable<TransactionInfoModel> GetBankAccountTransactions(BankAccountModel bankAccount);
-
-        IEnumerable<TransactionInfoModel> GetClientTransactionsFromDateToDate
-            (ClientModel client, DateTime startDate, DateTime endDate);
-
-        IEnumerable<TransactionInfoModel> GetBankAccountTransactionsFromDateToDate
-            (BankAccountModel bankAccount, DateTime startDate, DateTime endDate);
-
+        IEnumerable<TransactionInfoModel> GetClientTransactionsFromDateToDate(TransactionViewModel transaction);
     }
 }

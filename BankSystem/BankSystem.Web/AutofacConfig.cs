@@ -31,9 +31,6 @@ namespace BankSystem.Web
 
             builder.RegisterType<BankAccountServices>().As<IBankAccountServices>().InstancePerDependency();
 
-
-           
-
             builder.Register(x => Mapper.Instance);
 
 
@@ -43,5 +40,17 @@ namespace BankSystem.Web
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
+<<<<<<< HEAD
 
+    public interface ITest
+    {
+        string Str { get; set; }
+    }
+
+    public class Test : ITest
+    {
+        public string Str { get; set; }
+    }
+=======
+>>>>>>> 98b5885efde2b78c6dae36e2555d0e8f5125df93
 }

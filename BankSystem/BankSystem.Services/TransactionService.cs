@@ -36,7 +36,7 @@ namespace BankSystem.Services
             this.dbContext.SaveChanges();
         }
 
-        public IEnumerable<TransactionInfoModel> GetAllClientTransactions(ClientModel client)
+        public IEnumerable<TransactionInfoModel> GetTransactions(ClientModel client)
         {
             if (client == null)
             {
@@ -51,16 +51,24 @@ namespace BankSystem.Services
         }
 
         public IEnumerable<TransactionInfoModel> GetClientTransactionsFromDateToDate
-            (ClientModel client, DateTime startDate, DateTime endDate)
+            (TransactionViewModel transaction)
         {
-            if (client == null)
+            if (transaction == null)
             {
                 throw new ArgumentNullException();
             }
 
+            //var result = this.dbContext.Transactions
+            //    .Where(t => (t.Sender.Owner.UserName == transaction.UserName || t.Sender.Owner.UserName == transaction.UserName) &&
+            //               (t.Date >= transaction.StartDate && t.Date <= transaction.EndDate))
+            //    .ProjectTo<TransactionInfoModel>();
+
+
             var result = this.dbContext.Transactions
-                .Where(t => (t.Sender.Owner.UserName == client.UserName || t.Sender.Owner.UserName == client.UserName) &&
-                           (t.Date >= startDate && t.Date <= endDate))
+                .Where(t => t.Sender.Owner.UserName == transaction.UserName ||
+                            t.Receiver.Owner.UserName == transaction.UserName)
+                .Where(t => t.Date >= transaction.StartDate)
+                .Where(t => t.Date <= transaction.EndDate)
                 .ProjectTo<TransactionInfoModel>();
 
             return result;

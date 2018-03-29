@@ -1,0 +1,60 @@
+﻿@using System.Security.Cryptography
+@model IEnumerable<BankSystem.DTO.TransactionInfoModel>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "title";
+    //  Layout = "_Layout";
+}
+
+<h2>All Transactions</h2>
+
+@using (Html.BeginForm())
+{
+<p>
+    From Date: @Html.TextBox("StartDate")
+    To Date: @Html.TextBox("EndDate")
+    <input type="submit" value="Search" />
+</p>
+}
+<table class="table">
+    <tr>
+        <th>
+            Sender
+        </th>
+        <th>
+            Receiver
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            Date
+        </th>
+    </tr>
+
+
+    @foreach (var transaction in Model)
+    {
+        <tr>
+            <th>
+                @transaction.SenderId    @transaction.SenderAccountOwner
+            </th>
+            <th>
+                @transaction.ReceiverId    @transaction.ReveiverAccountOwner
+            </th>
+            <th>
+                @transaction.Amount @transaction.Currency
+            </th>
+            <th>
+                @transaction.Date
+            </th>
+        </tr>
+    }
+</table>
+<br />
+@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
