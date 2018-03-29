@@ -9,7 +9,7 @@ namespace BankSystem.Services.Contracts
 {
     public interface IBankAccountServices
     {
-        void AddBankAccount(BankAccountReadModel bankAccount);
+        void AddBankAccount(BankAccountAddAspModel bankAccount);
         
         BankAccountReadModel DeleteBankAccount(string id);
 

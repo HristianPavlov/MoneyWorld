@@ -23,7 +23,8 @@ namespace BankSystem.Models
         [Required(ErrorMessage = "Bank account should have currency type.")]
         public Currency? Currency { get; set; }
 
-        [Required(ErrorMessage = "Bank account should have owner.")]
+        public string OwnerId { get; set; }
+        //[Required(ErrorMessage = "Bank account should have owner.")]
         public virtual ApplicationUser Owner { get; set; }
 
         public bool IsDeleted { get; set; }

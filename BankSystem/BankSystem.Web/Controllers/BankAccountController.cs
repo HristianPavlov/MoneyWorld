@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BankSystem.DTO;
 
 namespace BankSystem.Web.Controllers
 {
@@ -34,6 +35,58 @@ namespace BankSystem.Web.Controllers
 
 
             return this.View(Allacc);
+        }
+        [Authorize]
+        public ActionResult AddBankAccount()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/Register
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddBankAccount(BankAccountAddAspModel model)
+        {//[Bind(Include =            "BankAccountType,Amount,Currency,Owner,IsDeleted")]
+            var user = new BankAccountAddAspModel { BankAccountType = model.BankAccountType, Amount = model.Amount, Currency = model.Currency, OwnerId = model.OwnerId, IsDeleted = model.IsDeleted };
+
+            //if (ModelState.IsValid)
+            //{
+            // var user = new BankAccount { BankAccountType=model.BankAccountType,Amount=model.Amount,Currency=model.Currency,Owner=model.Owner,IsDeleted=model.IsDeleted };
+            //UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName
+            //var result = await UserManager.CreateAsync(user, model.Password);
+
+            if (ModelState.IsValid)
+            {
+
+
+                bankAccountService.AddBankAccount(user);
+                //db.PersonalDetails.Add(personalDetail);
+                //db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View();
+            //if (result.Succeeded)
+            //    {
+            //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+            //        // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+            //        // Send an email with this link
+            //        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            //        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            //        // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+            //        return RedirectToAction("Index", "Home");
+            //    }
+
+
+
+            //ModelState.AddModelError("Email", "Email not found or matched");
+            //return View(model);
+
         }
     }
 }

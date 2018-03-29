@@ -24,7 +24,7 @@ namespace BankSystem.Services
             this.mapper = mapper;
         }
 
-        public void AddBankAccount(BankAccountReadModel bankAccount)
+        public void AddBankAccount(BankAccountAddAspModel bankAccount)
         {
 
             if (bankAccount==null)

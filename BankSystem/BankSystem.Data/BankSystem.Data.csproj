@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201803262212468_1234.Designer.cs">
       <DependentUpon>201803262212468_1234.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803292039145_BankAccountController+AddAccView.cs" />
+    <Compile Include="Migrations\201803292039145_BankAccountController+AddAccView.Designer.cs">
+      <DependentUpon>201803292039145_BankAccountController+AddAccView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +92,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803262212468_1234.resx">
       <DependentUpon>201803262212468_1234.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803292039145_BankAccountController+AddAccView.resx">
+      <DependentUpon>201803292039145_BankAccountController+AddAccView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
