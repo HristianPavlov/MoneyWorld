@@ -31,6 +31,8 @@ namespace BankSystem.Web
 
             builder.RegisterType<BankAccountServices>().As<IBankAccountServices>().InstancePerDependency();
 
+            builder.RegisterType<CardService>().As<ICardService>().InstancePerDependency();
+
             builder.Register(x => Mapper.Instance);
 
 

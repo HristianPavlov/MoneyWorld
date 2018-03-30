@@ -1,19 +1,26 @@
-﻿namespace BankSystem.Services.Contracts
+﻿using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
+using System;
+using System.Collections.Generic;
+
+namespace BankSystem.Services.Contracts
 {
     public interface ICardService
     {
-        //void AddCard(CardModel card);
+        IEnumerable<CardModel> GetAllCardsOfUser(ClientModel client);
 
-        //void DeleteCard(CardModel card);
+        void AddCard(CardModel card);
 
-        //void DeleteCard(int id);
+        void DeleteCard(CardModel card);
 
-        //void UpdateCardInfo(int cardId, string pin, DateTime expirationTime);
+        void DeleteCard(int id);
 
-        //ClientModel Owner(CardModel card);
+        void UpdateCardInfo(int cardId, string pin, DateTime expirationTime);
 
-        ////get bankAcount
+        ClientModel Owner(CardModel card);
 
-        //CardModel GetCardById(int id);
+        //get bankAcount
+
+        CardModel GetCardById(int id);
     }
 }

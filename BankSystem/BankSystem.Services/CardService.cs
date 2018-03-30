@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using BankSystem.Data.Contracts;
 using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using BankSystem.Models;
 using BankSystem.Services.Contracts;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BankSystem.Services
@@ -19,12 +21,30 @@ namespace BankSystem.Services
             this.mapper = mapper;
         }
 
+        public IEnumerable<CardModel> GetAllCardsOfUser(ClientModel client)
+        {
+            ApplicationUser user = this.dbContext.Users
+                .ToList()
+                .FirstOrDefault(x => x.UserName == client.UserName);
+
+            IEnumerable<BankAccount> bankAcounts = this.dbContext.BankAccounts
+                .ToList()
+                .TakeWhile(x => x.Owner.Id == user.Id);
+
+            IEnumerable<CardModel> allCards = bankAcounts
+                .TakeWhile(x => x.Cards.Count != 0)
+                .SelectMany(x => x.Cards)
+                .Select(x => this.mapper.Map<CardModel>(x));
+
+            return allCards;
+        }
+
         public void AddCard(CardModel card)
         {
             CheckIfCardIsNull(card);
             CheckIfBankAcountExists(card);
 
-            var cardToAdd = this.mapper.Map<Card>(card);
+            Card cardToAdd = this.mapper.Map<Card>(card);
 
             this.dbContext.Cards.Add(cardToAdd);
             this.dbContext.SaveChanges();
@@ -34,7 +54,7 @@ namespace BankSystem.Services
         {
             CheckIfCardIsNull(card);
 
-            var cardToDelete = this.dbContext.Cards
+            Card cardToDelete = this.dbContext.Cards
                 .First(x => x.Id == card.Id);
 
             cardToDelete.IsDeleted = true;
@@ -42,7 +62,7 @@ namespace BankSystem.Services
 
         public void DeleteCard(int id)
         {
-            var cardToDelete = this.dbContext.Cards.FirstOrDefault(x => x.Id == id);
+            Card cardToDelete = this.dbContext.Cards.FirstOrDefault(x => x.Id == id);
 
             cardToDelete.IsDeleted = true;
         }
@@ -51,29 +71,29 @@ namespace BankSystem.Services
         {
             CheckIfCardExistInDatabase(CardId);
 
-            var card = this.dbContext.Cards.First(x => x.Id == CardId);
-            var cardToReturn = this.mapper.Map<CardModel>(card);
+            Card card = this.dbContext.Cards.First(x => x.Id == CardId);
+            CardModel cardToReturn = this.mapper.Map<CardModel>(card);
 
             return cardToReturn;
         }
 
-        //public ClientModel Owner(CardModel card)
-        //{
-        //    var client = this.dbContext.Cards
-        //        .Select(x => x.Account)
-        //        .Select(x => x.Owner)
-        //        .FirstOrDefault();
+        public ClientModel Owner(CardModel card)
+        {
+            ApplicationUser client = this.dbContext.Cards
+                .Select(x => x.Account)
+                .Select(x => x.Owner)
+                .FirstOrDefault();
 
-        //    var clientModel = this.mapper.Map<ClientModel>(client);
+            ClientModel clientModel = this.mapper.Map<ClientModel>(client);
 
-        //    return clientModel;
-        //}
+            return clientModel;
+        }
 
         public void UpdateCardInfo(int cardId, string pin, DateTime expirationTime)
         {
             CheckIfCardExistInDatabase(cardId);
 
-            var cardToUpdate = this.dbContext.Cards.First(x => x.Id == cardId);
+            Card cardToUpdate = this.dbContext.Cards.First(x => x.Id == cardId);
 
             cardToUpdate.Pin = pin;
             cardToUpdate.ExpirationDate = expirationTime;

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<BankSystem.DTO.CardModel>
+@{
+    ViewBag.Title = "AllCards";
+}
+<h2>Cards</h2>
+@{
+    foreach (var card in Model)
+    {
+        <p>Card number: @card.Number</p>
+        <p>Expiration date: @card.ExpirationDate</p>
+        <p>_______</p>
+    }
+}
