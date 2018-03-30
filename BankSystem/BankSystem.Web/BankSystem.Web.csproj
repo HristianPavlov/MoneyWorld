@@ -211,6 +211,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BankAccountController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
@@ -285,9 +286,12 @@
     <Content Include="Views\BankAccount\BankAccountGetAll.cshtml" />
     <Content Include="Views\BankAccount\AddBankAccount.cshtml" />
     <Content Include="Views\Card\AllCards.cshtml" />
+    <Content Include="Views\BankAccount\BankAccountGetById.cshtml" />
+    <Content Include="Views\BankAccount\WritingId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

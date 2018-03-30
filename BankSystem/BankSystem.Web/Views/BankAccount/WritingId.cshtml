@@ -1,0 +1,25 @@
+﻿@model BankSystem.DTO.BankAccountAddAspModel
+@{
+    ViewBag.Title = "WritingId";
+    Layout = null;
+}
+
+<h2>WritingId</h2>
+
+
+
+
+
+@*
+    @using PagedList.Mvc;*@
+
+@using (Html.BeginForm()
+    )
+{
+    <p>
+        ID: @Html.TextBox("id")
+
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Search" />
+    </p>
+}

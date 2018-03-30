@@ -36,6 +36,45 @@ namespace BankSystem.Web.Controllers
 
             return this.View(Allacc);
         }
+
+    
+
+        [Authorize]
+        public ActionResult BankAccountGetById()
+        {
+          // var banksAcc= this.bankAccountService.GetAllBankAccounts().FirstOrDefault();
+
+            return View("WritingId");
+
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult BankAccountGetById(string id)
+        {
+
+            var banksAcc = this.bankAccountService.GetBankAccountByID(id);
+
+
+
+            return this.View(banksAcc);
+        }
+
+        /// <summary>
+        /// Wait for Card Delete  and then add  updated this shit here ????
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public ActionResult BankAccountDeleteById()
+        {
+
+
+            return this.View();
+        }
+
+
         [Authorize]
         public ActionResult AddBankAccount()
         {

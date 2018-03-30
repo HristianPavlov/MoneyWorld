@@ -1,0 +1,64 @@
+﻿@model BankSystem.DTO.BankAccountReadModel
+
+@{
+    ViewBag.Title = "BankAccountGetById";
+    Layout = null;
+}
+
+<h2>BankAccountGetById</h2>
+
+
+
+
+
+
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                BankAccountType
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Currency
+            </th>
+            <th>
+                Owner
+            </th>
+            <th>
+                IsDeleted
+            </th>
+        </tr>
+ 
+   
+        <tr>
+            <th>
+                @Model.Id
+            </th>
+            <th>
+                @Model.BankAccountType
+            </th>
+            <th>
+                @Model.Amount
+            </th>
+            <th>
+                @Model.Currency
+            </th>
+            <th>
+                @Model.Owner.UserName
+            </th>
+            <th>
+                @Model.IsDeleted
+            </th>
+        </tr>
+
+    </table>
+<br />
+
+
+
+

@@ -63,7 +63,9 @@ namespace BankSystem.Services
 
         public BankAccountReadModel GetBankAccountByID(string id)
         {
-            var bank = this.dbContext.BankAccounts.ProjectTo<BankAccountReadModel>().Where(x => x.Id == int.Parse(id)).FirstOrDefault();
+
+            var asd = int.Parse(id);
+            var bank = this.dbContext.BankAccounts.ProjectTo<BankAccountReadModel>().Where(x => x.Id == asd).FirstOrDefault();
 
             return bank;
         }
