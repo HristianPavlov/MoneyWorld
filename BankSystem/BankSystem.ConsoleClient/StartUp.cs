@@ -40,6 +40,10 @@ namespace BankSystem.ConsoleClient
             var clientService = container.Resolve<IClientServices>();
             var bankse = container.Resolve<IBankAccountServices>();
 
+            var cardService = container.Resolve<ICardService>();
+
+            cardService.DeleteCard(7);
+
             //var bank= bankse.DeleteBankAccount("11");
 
 

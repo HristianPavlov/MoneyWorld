@@ -58,20 +58,27 @@ namespace BankSystem.Services
                 .First(x => x.Id == card.Id);
 
             cardToDelete.IsDeleted = true;
+
+            this.dbContext.SaveChanges();
         }
 
         public void DeleteCard(int id)
         {
-            Card cardToDelete = this.dbContext.Cards.FirstOrDefault(x => x.Id == id);
+            Card cardToDelete = this.dbContext.Cards
+                .FirstOrDefault(x => x.Id == id);
 
             cardToDelete.IsDeleted = true;
+
+            this.dbContext.SaveChanges();
         }
 
         public CardModel GetCardById(int CardId)
         {
             CheckIfCardExistInDatabase(CardId);
 
-            Card card = this.dbContext.Cards.First(x => x.Id == CardId);
+            Card card = this.dbContext.Cards
+                .First(x => x.Id == CardId);
+
             CardModel cardToReturn = this.mapper.Map<CardModel>(card);
 
             return cardToReturn;
