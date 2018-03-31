@@ -1,4 +1,4 @@
-﻿@using System.Security.Cryptography
+﻿    @using System.Security.Cryptography
 @model IEnumerable<BankSystem.DTO.TransactionInfoModel>
 @using PagedList.Mvc;
 
@@ -13,8 +13,8 @@
 @using (Html.BeginForm())
 {
 <p>
-    From Date: @Html.TextBox("StartDate")
-    To Date: @Html.TextBox("EndDate")
+    From Date: @Html.TextBox("StartDate", null,new {type="date"})
+    To Date: @Html.TextBox("EndDate", null, new { type = "date" })
     <input type="submit" value="Search" />
 </p>
 }

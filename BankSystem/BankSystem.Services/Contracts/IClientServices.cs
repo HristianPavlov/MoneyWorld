@@ -1,11 +1,12 @@
-﻿using BankSystem.DTO.ClientModels;
+﻿using BankSystem.DTO;
+using BankSystem.DTO.ClientModels;
 using System.Collections.Generic;
 
 namespace BankSystem.Services.Contracts
 {
     public interface IClientServices
     {
-       // void AddClient(ClientAddModel client);
+        // void AddClient(ClientAddModel client);
 
         IEnumerable<ClientReadModel> GetClients();
 
@@ -13,7 +14,8 @@ namespace BankSystem.Services.Contracts
 
         ClientReadModel DeleteClientByID(string ID);
 
+        AccountViewModel GetAccountInfo(string userName);
 
-
+        void ChangeUserNames(ChangeNameViewModel model);
     }
 }

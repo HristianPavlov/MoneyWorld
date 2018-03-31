@@ -1,0 +1,16 @@
+﻿@model BankSystem.DTO.AccountViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Your Profile</h2>
+
+<dl class="dl-horizontal">
+    <dt>Name: @Model.FirstName  @Model.LastName</dt>
+    <dd>
+        @Html.ActionLink("Edit", "ChangeName")
+    </dd>
+    <dt>Amount: @Model.Amount</dt>
+</dl>
+

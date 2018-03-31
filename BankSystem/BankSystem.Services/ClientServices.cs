@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BankSystem.Data.Contracts;
+using BankSystem.DTO;
 using BankSystem.DTO.ClientModels;
 using BankSystem.Services.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -48,7 +50,7 @@ namespace BankSystem.Services
             //select e;
             // .ProjectTo<ClientReadModel>().FirstOrDefault()
             // .FirstOrDefault()
-            return customer.Where(x=>x.Id==ID).FirstOrDefault();
+            return customer.Where(x => x.Id == ID).FirstOrDefault();
             //this.dbContext.Clients.Where(x=>x.Id==ID).ProjectTo<ClientReadModel>().FirstOrDefault();
         }
 
@@ -68,5 +70,49 @@ namespace BankSystem.Services
 
         }
 
+        public AccountViewModel GetAccountInfo(string userName)
+        {
+            if (userName == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            var account = this.dbContext.Users.FirstOrDefault(x => x.UserName == userName);
+
+            if (account == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return this.mapper.Map<AccountViewModel>(account);
+        }
+
+        public void ChangeUserNames(ChangeNameViewModel model)
+        {
+            if (model == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            var user = this.dbContext.Users.FirstOrDefault(x => x.UserName == model.UserName);
+
+            if (user == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (string.IsNullOrWhiteSpace(model.FirstName))
+            {
+                model.FirstName = user.FirstName;
+            }
+            if (string.IsNullOrWhiteSpace(model.LastName))
+            {
+                model.LastName = user.LastName;
+            }
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+
+            this.dbContext.SaveChanges();
+        }
     }
 }

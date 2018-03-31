@@ -57,9 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountViewModel.cs" />
     <Compile Include="BankAccountAddAspModel.cs" />
     <Compile Include="BankAccountReadModel.cs" />
     <Compile Include="CardModel.cs" />
+    <Compile Include="ChangeNameViewModel.cs" />
     <Compile Include="ClientModels\ClientAddModel.cs" />
     <Compile Include="BankAccountModel.cs" />
     <Compile Include="ClientModels\ClientModel.cs" />

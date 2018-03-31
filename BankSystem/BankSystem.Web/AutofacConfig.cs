@@ -29,6 +29,8 @@ namespace BankSystem.Web
 
             builder.RegisterType<TransactionService>().As<ITransactionService>().InstancePerDependency();
 
+            builder.RegisterType<ClientServices>().As<IClientServices>().InstancePerDependency();
+
             builder.RegisterType<BankAccountServices>().As<IBankAccountServices>().InstancePerDependency();
 
             builder.RegisterType<CardService>().As<ICardService>().InstancePerDependency();
