@@ -29,10 +29,10 @@ namespace UnitTestProject1
         [TestMethod]
         public void Should_Return_ArgumentNullException_When_Exchange_is_Null()
         {
-            var effortContext = new Mock<IBankSystemContext>();
+            var effortContext = new BankSystemContext(Effort.DbConnectionFactory.CreateTransient());
 
 
-            var sut = new ExchangeRateService(effortContext.Object);
+            var sut = new ExchangeRateService(effortContext);
 
 
             var exchange = new ExchangeRateModel()
@@ -44,16 +44,16 @@ namespace UnitTestProject1
 
 
             //Act & Assert
-            Assert.ThrowsException<ArgumentNullException>(() => sut.GetExchangeRate(exchange));
+            Assert.ThrowsException<ArgumentException>(() => sut.GetExchangeRate(exchange));
 
         }
         [TestMethod]
         public void Should_Return_1_When_The_Same_Currency_is_used()
         {
-            var effortContext = new Mock<IBankSystemContext>();
+            var effortContext = new BankSystemContext(Effort.DbConnectionFactory.CreateTransient());
 
 
-            var sut = new ExchangeRateService(effortContext.Object);
+            var sut = new ExchangeRateService(effortContext);
 
 
             var exchange = new ExchangeRateModel()
