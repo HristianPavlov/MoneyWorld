@@ -71,8 +71,28 @@ namespace BankSystem.Web.Controllers
         {
 
 
+            return View("WritingId");
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteBankAccountByID(string id)
+        {
+            var bankacc = this.bankAccountService.DeleteBankAccount(id);
+
+
+            //foreach (var card in bankacc.Cards)
+            //{
+            //    this.cardService.DeleteCard(card.Id);
+            //}
+
             return this.View();
         }
+
+
+
 
 
         [Authorize]

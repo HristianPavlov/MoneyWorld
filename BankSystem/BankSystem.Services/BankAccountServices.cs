@@ -55,19 +55,24 @@ namespace BankSystem.Services
             return this.mapper.Map<BankAccountReadModel>(bankacc);
         }
 
+
         public IEnumerable <BankAccountReadModel> GetAllBankAccounts()
         {
 
             return this.dbContext.BankAccounts.ProjectTo<BankAccountReadModel>();
         }
 
+
+
         public BankAccountReadModel GetBankAccountByID(string id)
         {
 
             var asd = int.Parse(id);
-            var bank = this.dbContext.BankAccounts.ProjectTo<BankAccountReadModel>().Where(x => x.Id == asd).FirstOrDefault();
+            var bank = this.dbContext.BankAccounts.Where(x => x.Id == asd).FirstOrDefault();
 
-            return bank;
+            var bankReadModel = this.mapper.Map<BankAccountReadModel>(bank);
+
+            return bankReadModel;
         }
 
 

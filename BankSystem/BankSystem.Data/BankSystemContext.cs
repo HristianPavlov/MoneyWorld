@@ -12,6 +12,7 @@ namespace BankSystem.Data
         public BankSystemContext()
             : base("BankSystem")
         {
+            //Database.SetInitializer<BankSystemContext>(new CreateDatabaseIfNotExists<BankSystemContext>());
         }
 
         public BankSystemContext(DbConnection connection)

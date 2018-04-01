@@ -38,6 +38,7 @@ namespace BankSystem.Models
             get => this.contacts;
             set => this.contacts = value;
         }
+        
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

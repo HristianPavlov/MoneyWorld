@@ -42,10 +42,26 @@ namespace BankSystem.ConsoleClient
 
             var cardService = container.Resolve<ICardService>();
 
-            cardService.DeleteCard(7);
+            //cardService.DeleteCard(7);
 
             //var bank= bankse.DeleteBankAccount("11");
 
+
+            var bank = new BankAccountAddAspModel()
+            {
+                
+                BankAccountType = (BankAccountType)1,
+                Amount = 12345,
+                Currency = (Currency)973,
+                OwnerId = "1",
+                IsDeleted = false
+
+            };
+
+            bankse.AddBankAccount(bank);
+
+            //var sut = new BankAccountServices(effortContext, mapperMock.Object);
+            //sut.AddBankAccount(bank);
 
 
             //clientService.AddClient(clientAddModel);
