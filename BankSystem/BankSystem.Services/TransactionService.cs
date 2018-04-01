@@ -14,22 +14,87 @@ namespace BankSystem.Services
     public class TransactionService : ITransactionService
     {
         private readonly IBankSystemContext dbContext;
+        private readonly IExchangeRateService exchangeRateService;
         private readonly IMapper mapper;
 
-        public TransactionService(IBankSystemContext dbContext, IMapper mapper)
+        public TransactionService(IBankSystemContext dbContext, IExchangeRateService exchangeRateService, IMapper mapper)
         {
             this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            this.exchangeRateService = exchangeRateService ?? throw new ArgumentNullException(nameof(exchangeRateService)); ;
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public void AddTransaction(TransactionAddModel transaction)
+        public void MakeTransaction(MakeTransactionModel transaction)
         {
             if (transaction == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("Transaction cannot be null");
             }
 
+            if (transaction.Amount < 0)
+            {
+                throw new ArgumentException("Cannot send negative money.");
+            }
+            if (transaction.SenderBankAccountId == transaction.ReceiverBankAccountId)
+            {
+                throw new ArgumentException("Cannot send to same bank account");
+            }
+
+            var user = this.dbContext.Users.FirstOrDefault(x => x.UserName == transaction.UserName);
+
+            if (user == null)
+            {
+                throw new ArgumentException("User does not exist.");
+            }
+
+            if (user.BankAccounts.All(a => a.Id != transaction.SenderBankAccountId))
+            {
+                throw new ArgumentException("Cannot send from other bank account");
+            }
+
+            var senderBankAcc = user.BankAccounts.FirstOrDefault(b => b.Id == transaction.SenderBankAccountId);
+
+            var amountToSubtract = transaction.Amount;
+
+            var senderRate = this.exchangeRateService.GetExchangeRate(new ExchangeRateModel()
+            {
+                FromCurrency = transaction.Currency,
+                ToCurrency = senderBankAcc.Currency
+            });
+
+            amountToSubtract *= senderRate;
+
+
+            if (amountToSubtract > senderBankAcc.Amount)
+            {
+                throw new ArgumentException("Cannot send more money then you have.");
+            }
+
+            senderBankAcc.Amount -= amountToSubtract;
+
+            var receiverBankAcc =
+                this.dbContext.BankAccounts.FirstOrDefault(b => b.Id == transaction.ReceiverBankAccountId);
+
+            if (receiverBankAcc == null)
+            {
+                throw new ArgumentException("Cannot find receiver bank account.");
+            }
+
+            var amountToAdd = transaction.Amount;
+
+            var receiverRate = this.exchangeRateService.GetExchangeRate(new ExchangeRateModel()
+            {
+                FromCurrency = transaction.Currency,
+                ToCurrency = receiverBankAcc.Currency
+            });
+
+            amountToAdd *= receiverRate;
+
+            receiverBankAcc.Amount += amountToAdd;
+
             var transactionToAdd = this.mapper.Map<Transaction>(transaction);
+
+            transactionToAdd.Date = DateTime.Now;
 
             this.dbContext.Transactions.Add(transactionToAdd);
 

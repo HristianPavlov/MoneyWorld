@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="AccountViewModel.cs" />
     <Compile Include="BankAccountAddAspModel.cs" />
+    <Compile Include="ExchangeRateModel.cs" />
+    <Compile Include="MakeTransactionWithDropDownViewModel.cs" />
+    <Compile Include="UserBankAccounts.cs" />
     <Compile Include="BankAccountReadModel.cs" />
     <Compile Include="CardModel.cs" />
     <Compile Include="ChangeNameViewModel.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="ClientModels\ClientModel.cs" />
     <Compile Include="ClientModels\ClientReadModel.cs" />
     <Compile Include="ContactsReadModel.cs" />
+    <Compile Include="MakeTransactionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionAddModel.cs" />
     <Compile Include="TransactionInfoModel.cs" />

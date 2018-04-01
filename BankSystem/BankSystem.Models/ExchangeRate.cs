@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BankSystem.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using BankSystem.Models.Enums;
 
 namespace BankSystem.Models
 {
@@ -15,7 +15,7 @@ namespace BankSystem.Models
         public Currency? ToCurrency { get; set; }
 
         [Required(ErrorMessage = "Exchange rate should have rate.")]
-        public decimal? Rate { get; set; }
+        public decimal Rate { get; set; }
 
         public bool IsDeleted { get; set; }
     }

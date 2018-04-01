@@ -21,7 +21,7 @@ namespace BankSystem.Models
         public decimal Amount { get; set; }
 
         [Required(ErrorMessage = "Bank account should have currency type.")]
-        public Currency? Currency { get; set; }
+        public Currency Currency { get; set; }
 
         public string OwnerId { get; set; }
         //[Required(ErrorMessage = "Bank account should have owner.")]

@@ -35,6 +35,8 @@ namespace BankSystem.Web
 
             builder.RegisterType<CardService>().As<ICardService>().InstancePerDependency();
 
+            builder.RegisterType<ExchangeRateService>().As<IExchangeRateService>().InstancePerDependency();
+
             builder.Register(x => Mapper.Instance);
 
 

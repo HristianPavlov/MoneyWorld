@@ -7,12 +7,10 @@ using BankSystem.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankSystem.Services
 {
-  public  class BankAccountServices: IBankAccountServices
+    public class BankAccountServices : IBankAccountServices
     {
 
         private readonly IBankSystemContext dbContext;
@@ -27,12 +25,12 @@ namespace BankSystem.Services
         public void AddBankAccount(BankAccountAddAspModel bankAccount)
         {
 
-            if (bankAccount==null)
+            if (bankAccount == null)
             {
                 throw new ArgumentNullException("the bankAccount you wish to add to the database is null, fix it now or cry latter");
 
             }
-            var bankAccAdd= this.mapper.Map<BankAccount>(bankAccount);
+            var bankAccAdd = this.mapper.Map<BankAccount>(bankAccount);
 
             this.dbContext.BankAccounts.Add(bankAccAdd);
             this.dbContext.SaveChanges();
@@ -45,17 +43,17 @@ namespace BankSystem.Services
 
         {
             int ID = int.Parse(id);
-            
-            var bankacc= this.dbContext.BankAccounts.Where(x => x.Id == ID).FirstOrDefault();
+
+            var bankacc = this.dbContext.BankAccounts.Where(x => x.Id == ID).FirstOrDefault();
 
             bankacc.IsDeleted = true;
             this.dbContext.SaveChanges();
 
-                      
+
             return this.mapper.Map<BankAccountReadModel>(bankacc);
         }
 
-        public IEnumerable <BankAccountReadModel> GetAllBankAccounts()
+        public IEnumerable<BankAccountReadModel> GetAllBankAccounts()
         {
 
             return this.dbContext.BankAccounts.ProjectTo<BankAccountReadModel>();
@@ -70,9 +68,13 @@ namespace BankSystem.Services
             return bank;
         }
 
+        public UserBankAccounts GetUserBankAccounts(string userName)
+        {
+            var bankAcc = this.dbContext.Users.FirstOrDefault(x => x.UserName == userName);
 
+            var userBankAcc = this.mapper.Map<UserBankAccounts>(bankAcc);
 
-
-
+            return userBankAcc;
+        }
     }
 }
