@@ -305,6 +305,7 @@
     <Content Include="Views\Transactions\MakeTransaction.cshtml" />
     <Content Include="Views\BankAccount\GetDropDownListOfBankAccountIDs.cshtml" />
     <Content Include="Views\Card\AddCard.cshtml" />
+    <Content Include="Views\Card\RemoveCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

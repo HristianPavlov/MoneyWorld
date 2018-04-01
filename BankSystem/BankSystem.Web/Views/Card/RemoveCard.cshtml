@@ -1,0 +1,23 @@
+﻿@model BankSystem.DTO.CardViewModel
+
+<h2>RemoveCard</h2>
+@using (Html.BeginForm())
+{
+    var list = new List<SelectListItem>();
+    list.AddRange(Model.Cards.Select(b =>
+    {
+        return new SelectListItem()
+        {
+            Value = b.Id.ToString(),
+            Text = "Id: " + b.Id
+        };
+    }));
+
+    @Html.DropDownListFor(m => m.CardID, list)
+
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+}
+
+

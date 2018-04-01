@@ -24,8 +24,11 @@ namespace BankSystem.Web.Controllers
         public ActionResult AllCards()
         {
             string userName = this.User.Identity.Name;
+
             ClientModel clientModel = new ClientModel() { UserName = userName };
+
             IEnumerable<CardModel> allCardsOfUser = this.cardService.GetAllCardsOfUser(clientModel);
+
             return this.View(allCardsOfUser);
         }
 
@@ -38,10 +41,6 @@ namespace BankSystem.Web.Controllers
         [HttpPost]
         public ActionResult AddCard(string number, string pin, DateTime expirationDate, string secretNumber, int idOfBankAccount)
         {
-            string cardNumber = number;
-            //DateTime expirationDate = expirationDate;
-            int bankAccID = idOfBankAccount;
-
             CardModel cardToAdd = new CardModel()
             {
                 Account = new BankAccountModel() { Id = idOfBankAccount },
@@ -59,7 +58,23 @@ namespace BankSystem.Web.Controllers
         [Authorize]
         public ActionResult RemoveCard()
         {
-            return this.View();
+            string userName = this.User.Identity.Name;
+
+            ClientModel clientModel = new ClientModel() { UserName = userName };
+
+            IEnumerable<CardModel> allCardsOfUser = this.cardService.GetAllCardsOfUser(clientModel);
+
+            var cardViewModel = new CardViewModel() { Cards = allCardsOfUser };
+
+            return this.View(cardViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult RemoveCard(CardViewModel card)
+        {
+            this.cardService.DeleteCard(card.CardID);
+
+            return this.Redirect("AllCards");
         }
     }
 }
