@@ -302,10 +302,9 @@
     <Content Include="Views\BankAccount\WritingId.cshtml" />
     <Content Include="Views\User\ChangeName.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-
-
     <Content Include="Views\Transactions\MakeTransaction.cshtml" />
-
+    <Content Include="Views\BankAccount\GetDropDownListOfBankAccountIDs.cshtml" />
+    <Content Include="Views\Card\AddCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

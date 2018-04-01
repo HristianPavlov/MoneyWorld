@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="AccountViewModel.cs" />
     <Compile Include="BankAccountAddAspModel.cs" />
+    <Compile Include="BankAccountViewModel.cs" />
     <Compile Include="ExchangeRateModel.cs" />
     <Compile Include="MakeTransactionWithDropDownViewModel.cs" />
     <Compile Include="UserBankAccounts.cs" />
