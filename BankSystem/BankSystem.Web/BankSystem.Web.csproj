@@ -302,11 +302,10 @@
     <Content Include="Views\BankAccount\WritingId.cshtml" />
     <Content Include="Views\User\ChangeName.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\BankAccount\DeleteBankAccountByID.cshtml" />
-=======
+
+
     <Content Include="Views\Transactions\MakeTransaction.cshtml" />
->>>>>>> 866509dcff51a29876af5c7ca5d1a641563ad75a
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
