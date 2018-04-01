@@ -6,7 +6,7 @@ namespace BankSystem.Services.Contracts
 {
     public interface ITransactionService
     {
-        void AddTransaction(TransactionAddModel transaction);
+        void MakeTransaction(MakeTransactionModel transaction);
 
         IEnumerable<TransactionInfoModel> GetTransactions(ClientModel transaction);
 

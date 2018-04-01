@@ -20,10 +20,10 @@ namespace BankSystem.Models
         public decimal Amount { get; set; }
 
         [Required(ErrorMessage = "Transaction should have currency type.")]
-        public Currency? Currency { get; set; }
+        public Currency Currency { get; set; }
 
         [Required(ErrorMessage = "Transaction should hava date.")]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         public bool IsDeleted { get; set; }
     }

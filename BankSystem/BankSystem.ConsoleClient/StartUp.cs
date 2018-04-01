@@ -81,7 +81,7 @@ namespace BankSystem.ConsoleClient
 
             //var transactionService = new TransactionService();
 
-            //transactionService.AddTransaction(transactionModel);
+            //transactionService.MakeTransaction(transactionModel);
 
             //var client = new ClientModel()
             //{
@@ -94,7 +94,7 @@ namespace BankSystem.ConsoleClient
 
 
 
-            //  transactionService.AddTransaction(transactionModel);
+            //  transactionService.MakeTransaction(transactionModel);
             //controller.CreatePost("Added new post", DateTime.Now);
 
 

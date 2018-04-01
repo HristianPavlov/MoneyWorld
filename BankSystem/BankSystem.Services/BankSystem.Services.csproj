@@ -87,7 +87,9 @@
     <Compile Include="Contracts\IBankAccountServices.cs" />
     <Compile Include="Contracts\ICardService.cs" />
     <Compile Include="Contracts\IClientServices.cs" />
+    <Compile Include="Contracts\IExchangeRateService.cs" />
     <Compile Include="Contracts\ITransactionService.cs" />
+    <Compile Include="ExchangeRateService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionService.cs" />
   </ItemGroup>
