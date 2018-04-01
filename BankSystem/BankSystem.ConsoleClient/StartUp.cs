@@ -2,12 +2,14 @@
 using AutoMapper;
 using BankSystem.Common;
 using BankSystem.ConsoleClient.Controllers;
+using BankSystem.Data.Contracts;
 using BankSystem.DTO;
 using BankSystem.DTO.ClientModels;
 using BankSystem.Models;
 using BankSystem.Models.Enums;
 using BankSystem.Services;
 using BankSystem.Services.Contracts;
+using iTextSharp.text;
 //using BankSystem.Services.
 using System;
 using System.Linq;
@@ -34,34 +36,49 @@ namespace BankSystem.ConsoleClient
 
             //};
 
+            var client = new ClientModel()
+            {
+                UserName = "a.petrova@abv.bg"
+            };
+
             //var controller = new ClientController();
 
-            var controller = container.Resolve<ClientController>();
-            var clientService = container.Resolve<IClientServices>();
-            var bankse = container.Resolve<IBankAccountServices>();
+            //var controller = container.Resolve<ClientController>();
+            //var clientService = container.Resolve<IClientServices>();
+            //var bankse = container.Resolve<IBankAccountServices>();
 
-            var cardService = container.Resolve<ICardService>();
+            //var cardService = container.Resolve<ICardService>();
 
             //cardService.DeleteCard(7);
 
-            //var bank= bankse.DeleteBankAccount("11");
+            //CardModel cardMode = new CardModel()
+            //{
+            //    Account = new BankAccountModel() { Id = 1 },
+            //    ExpirationDate = new DateTime(2019, 10, 10),
+            //    Number = "1234567890123456",
+            //    Pin = "1234",
+            //    SecretNumber = "123"
+            //};
 
-
-            var bank = new BankAccountAddAspModel()
+            //cardService.AddCard(cardMode);
+            var makeTrModel = new MakeTransactionModel()
             {
-                
-                BankAccountType = (BankAccountType)1,
-                Amount = 12345,
-                Currency = (Currency)973,
-                OwnerId = "1",
-                IsDeleted = false
-
+                Amount = 100,
+                Currency = Currency.BGN,
+                ReceiverBankAccountId = 3,
+                SenderBankAccountId = 1,
+                UserName = "a.petrova@abv.bg"
             };
 
-            bankse.AddBankAccount(bank);
+            var transactionServ = container.Resolve<ITransactionService>();
+            
+            PDFTransactionsDocument pDFTransactionsDocument = new PDFTransactionsDocument(transactionServ, "pdftest.pdf");
+            
+            pDFTransactionsDocument.CreateDocument(client);
+            
 
-            //var sut = new BankAccountServices(effortContext, mapperMock.Object);
-            //sut.AddBankAccount(bank);
+            //var bank= bankse.DeleteBankAccount("11");
+
 
 
             //clientService.AddClient(clientAddModel);
@@ -81,7 +98,7 @@ namespace BankSystem.ConsoleClient
 
             //var transactionService = new TransactionService();
 
-            //transactionService.MakeTransaction(transactionModel);
+            //transactionService.AddTransaction(transactionModel);
 
             //var client = new ClientModel()
             //{
@@ -94,7 +111,7 @@ namespace BankSystem.ConsoleClient
 
 
 
-            //  transactionService.MakeTransaction(transactionModel);
+            //  transactionService.AddTransaction(transactionModel);
             //controller.CreatePost("Added new post", DateTime.Now);
 
 
@@ -103,12 +120,12 @@ namespace BankSystem.ConsoleClient
             ////controller.AddClient(read[0], read[1], read[2], read[3]);
 
 
-            var clients = clientService.GetClients();
+            //var clients = clientService.GetClients();
             //var newww = new ClientModel();
-            foreach (var item in clients)
-            {
-                Console.WriteLine(item.UserName);
-            }
+            //foreach (var item in clients)
+            //{
+            //    Console.WriteLine(item.UserName);
+            //}
 
         }
 

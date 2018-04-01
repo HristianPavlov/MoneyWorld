@@ -13,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace BankSystem.ConsoleClient.AutofacModules
 {
-  public  class AutofacModule:Module
+    public class AutofacModule : Module
 
     {
-        protected override void Load( ContainerBuilder builder)
+        protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<BankSystemContext>().As<IBankSystemContext>().InstancePerDependency();
 
@@ -24,14 +24,15 @@ namespace BankSystem.ConsoleClient.AutofacModules
             builder.RegisterType<BankAccountServices>().As<IBankAccountServices>().InstancePerDependency();
 
             builder.RegisterType<TransactionService>().As<ITransactionService>().InstancePerDependency();
+            builder.RegisterType<ExchangeRateService>().As<IExchangeRateService>().InstancePerDependency();
+
             builder.RegisterType<ClientController>().AsSelf().InstancePerDependency();
-
-
+            
             builder.RegisterType<CardService>().As<ICardService>().InstancePerDependency();
+            builder.RegisterType<PDFTransactionsDocument>().AsSelf();
 
             builder.Register(x => Mapper.Instance);
 
         }
-
     }
 }
