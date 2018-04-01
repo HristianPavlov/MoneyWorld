@@ -53,14 +53,10 @@ namespace BankSystem.Services
             return this.mapper.Map<BankAccountReadModel>(bankacc);
         }
 
-<<<<<<< HEAD
 
-        public IEnumerable <BankAccountReadModel> GetAllBankAccounts()
-=======
         public IEnumerable<BankAccountReadModel> GetAllBankAccounts()
->>>>>>> 866509dcff51a29876af5c7ca5d1a641563ad75a
-        {
 
+        {
             return this.dbContext.BankAccounts.ProjectTo<BankAccountReadModel>();
         }
 
