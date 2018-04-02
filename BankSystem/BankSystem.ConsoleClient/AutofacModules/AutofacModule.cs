@@ -22,7 +22,7 @@ namespace BankSystem.ConsoleClient.AutofacModules
 
             builder.RegisterType<ClientServices>().As<IClientServices>().InstancePerDependency();
             builder.RegisterType<BankAccountServices>().As<IBankAccountServices>().InstancePerDependency();
-
+            builder.RegisterType<JsonReader>().As<IJsonReader>().InstancePerDependency();
             builder.RegisterType<TransactionService>().As<ITransactionService>().InstancePerDependency();
             builder.RegisterType<ExchangeRateService>().As<IExchangeRateService>().InstancePerDependency();
 

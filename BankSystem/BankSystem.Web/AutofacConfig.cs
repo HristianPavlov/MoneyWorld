@@ -26,6 +26,7 @@ namespace BankSystem.Web
 
             // Register our Data dependencies
             builder.RegisterType<BankSystemContext>().As<IBankSystemContext>().InstancePerDependency();
+            builder.RegisterType<JsonReader>().As<IJsonReader>().InstancePerDependency();
 
             builder.RegisterType<TransactionService>().As<ITransactionService>().InstancePerDependency();
 

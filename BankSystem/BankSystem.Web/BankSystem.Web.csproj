@@ -223,6 +223,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BankAccountController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\JsonReaderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -302,10 +303,9 @@
     <Content Include="Views\BankAccount\WritingId.cshtml" />
     <Content Include="Views\User\ChangeName.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-
-
     <Content Include="Views\Transactions\MakeTransaction.cshtml" />
-
+    <Content Include="Views\JsonReader\WritingPath.cshtml" />
+    <Content Include="Views\JsonReader\JsonReader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

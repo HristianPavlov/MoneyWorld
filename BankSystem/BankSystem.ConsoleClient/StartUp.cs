@@ -10,8 +10,11 @@ using BankSystem.Models.Enums;
 using BankSystem.Services;
 using BankSystem.Services.Contracts;
 using iTextSharp.text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 //using BankSystem.Services.
 using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -43,9 +46,9 @@ namespace BankSystem.ConsoleClient
 
             //var controller = new ClientController();
 
-            //var controller = container.Resolve<ClientController>();
-            //var clientService = container.Resolve<IClientServices>();
-            //var bankse = container.Resolve<IBankAccountServices>();
+            var controller = container.Resolve<ClientController>();
+            var clientService = container.Resolve<IClientServices>();
+            var bankse = container.Resolve<IBankAccountServices>();
 
             //var cardService = container.Resolve<ICardService>();
 
@@ -61,6 +64,39 @@ namespace BankSystem.ConsoleClient
             //};
 
             //cardService.AddCard(cardMode);
+
+
+
+
+
+            JObject o1 = JObject.Parse(File.ReadAllText(@"D:\DESKTOP\videogames.json"));
+
+            // read JSON directly from a file
+            // using (StreamReader file = File.OpenText(@"D:\DESKTOP\videogames.json"))
+
+           string file = Console.ReadLine();
+
+            // @"D:\DESKTOP\videogames.json"
+            //var jsonObj =new Object();
+
+            //StreamReader reader = new StreamReader(@"D:\DESKTOP\" + file+".json");
+
+            string json = File.ReadAllText((@"D:\DESKTOP\" + file + ".json"));
+               var jsonObj = JsonConvert.DeserializeObject<BankAccountAddAspModel>(json);
+
+
+            //reader.Close();
+
+
+            //bankse.AddBankAccount(jsonObj);
+
+            //string j= @" {
+            //      'Id':1
+            //          }";
+
+            //var jsonObj = JsonConvert.DeserializeObject<BankAccountModel>(j);
+
+
             var makeTrModel = new MakeTransactionModel()
             {
                 Amount = 100,

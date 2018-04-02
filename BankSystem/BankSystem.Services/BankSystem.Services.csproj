@@ -60,6 +60,10 @@
     <Reference Include="Mono.Reflection, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Reflection.1.1.0.0\lib\Mono.Reflection.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PdfSharp, Version=1.50.4820.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp.1.50.4820-RC1\lib\net20\PdfSharp.dll</HintPath>
     </Reference>
@@ -90,6 +94,8 @@
     <Compile Include="Contracts\IExchangeRateService.cs" />
     <Compile Include="Contracts\ITransactionService.cs" />
     <Compile Include="ExchangeRateService.cs" />
+    <Compile Include="Contracts\IJsonReader.cs" />
+    <Compile Include="JsonReader.cs" />
     <Compile Include="PDFTransactionsDocument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionService.cs" />
