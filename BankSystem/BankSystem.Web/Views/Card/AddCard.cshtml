@@ -1,0 +1,35 @@
+﻿@model BankSystem.DTO.CardModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    <div>
+        <p>
+            <b>Number: </b>
+            @Html.TextBox("number", null, new { id = "numberOfCard", minlenght = "16" })
+        </p>
+        <p>
+            <b>Pin: </b>
+            @Html.TextBox("pin", null, new { id = "pin", minleght = "4", type = "password" })
+        </p>
+        <p>
+            <b>Expiration Date: </b>
+            @Html.TextBox("expirationDate", null, new { id = "expirationDate", type = "date" })
+        </p>
+        <p>
+            <b>Secret number: </b>
+            @Html.TextBox("secretNumber", null, new { id = "secretNumber", type = "password" })
+        </p>
+        <p>
+            <b>ID of Bank Account: </b>
+            @*@Html.Action("GetDropDownListOfBankAccountIDs", "~Controllers/BankAccountController/BankAccountController")*@
+            @*@Html.Partial("~/Views/BankAccount/GetDropDownListOfBankAccountIDs.cshtml")*@
+            @Html.TextBox("idOfBankAccount", null, new { id = "idOfBankAccount", type = "number" })
+        </p>
+    </div>
+
+    <input type="submit" value="Submit" />
+}

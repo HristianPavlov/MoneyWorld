@@ -24,12 +24,11 @@ namespace BankSystem.Services
         public IEnumerable<CardModel> GetAllCardsOfUser(ClientModel client)
         {
             ApplicationUser user = this.dbContext.Users
-                .ToList()
                 .FirstOrDefault(x => x.UserName == client.UserName);
 
             IEnumerable<BankAccount> bankAcounts = this.dbContext.BankAccounts
                 .ToList()
-                .TakeWhile(x => x.Owner.Id == user.Id);
+                .TakeWhile(x => x.Owner.Id == user.Id && x.IsDeleted == false);
 
             IEnumerable<CardModel> allCards = bankAcounts
                 .TakeWhile(x => x.Cards.Count != 0)
@@ -47,6 +46,7 @@ namespace BankSystem.Services
             Card cardToAdd = this.mapper.Map<Card>(card);
 
             this.dbContext.Cards.Add(cardToAdd);
+
             this.dbContext.SaveChanges();
         }
 
@@ -100,7 +100,8 @@ namespace BankSystem.Services
         {
             CheckIfCardExistInDatabase(cardId);
 
-            Card cardToUpdate = this.dbContext.Cards.First(x => x.Id == cardId);
+            Card cardToUpdate = this.dbContext.Cards
+                .First(x => x.Id == cardId);
 
             cardToUpdate.Pin = pin;
             cardToUpdate.ExpirationDate = expirationTime;

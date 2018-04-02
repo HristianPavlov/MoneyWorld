@@ -62,6 +62,17 @@ namespace BankSystem.Web.Controllers
             return this.View(banksAcc);
         }
 
+        [Authorize]
+        public ActionResult GetDropDownListOfBankAccountIDs()
+        {
+            var viewModel = new BankAccountViewModel()
+            {
+                BankAccounts = this.bankAccountService.GetAllBankAccounts().ToList()
+            };
+            
+            return this.View(viewModel);
+        }
+
         /// <summary>
         /// Wait for Card Delete  and then add  updated this shit here ????
         /// </summary>

@@ -1,0 +1,19 @@
+﻿@model BankSystem.DTO.BankAccountViewModel
+@{
+    ViewBag.Title = "GetDropDownListOfBankAccountIDs";
+}
+
+<h2>GetDropDownListOfBankAccountIDs</h2>
+@{
+    var list = new List<SelectListItem>();
+    list.AddRange(Model.BankAccounts.Select(b =>
+    {
+        return new SelectListItem()
+        {
+            Value = b.Id.ToString(),
+            Text = "Id: " + b.Id
+        };
+    }));
+}
+@Html.DropDownListFor(m => m.BankAccountID, list)
+
