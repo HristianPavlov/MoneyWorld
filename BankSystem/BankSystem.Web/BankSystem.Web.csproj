@@ -304,14 +304,11 @@
     <Content Include="Views\User\ChangeName.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Transactions\MakeTransaction.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\JsonReader\WritingPath.cshtml" />
     <Content Include="Views\JsonReader\JsonReader.cshtml" />
-=======
     <Content Include="Views\BankAccount\GetDropDownListOfBankAccountIDs.cshtml" />
     <Content Include="Views\Card\AddCard.cshtml" />
     <Content Include="Views\Card\RemoveCard.cshtml" />
->>>>>>> 9f3cc19ed5871ecf0068243b1687a735c3e2404b
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
